@@ -1,0 +1,20 @@
+# Generated release packages
+google-meet-recorder-extension-*/
+google-meet-recorder-extension-*.zip
+
+# Temporary dependency extraction
+scratch-mp3-dependency/
+
+# Design iterations and previews (active production icons remain tracked)
+icons/icon-source-chroma.png
+icons/meet-recorder-icon-master.png
+icons/meet-recorder-icon-master.svg
+icons/yellow-play-icon.svg
+icons/yellow-play-icon-preview.png
+icons/video-player-white-play-preview.png
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

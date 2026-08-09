@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="icons/icon-32.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Meet Recorder</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="popup-audit-fixes.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <span class="brand" aria-hidden="true"><i></i></span>
+      <div class="identity"><h1>Meet Recorder</h1><p>Records locally on this computer</p></div>
+      <span class="state"><i id="stateDot"></i><b id="stateLabel">READY</b></span>
+    </header>
+
+    <section class="session" aria-label="Recording status">
+      <div class="clock"><small>Recording time</small><strong id="sessionTimer">00:00:00</strong></div>
+      <div class="health"><span id="healthDot"></span><p><small>Audio status</small><b id="healthText">Ready to capture</b></p></div>
+    </section>
+
+    <section class="monitor" aria-label="Live audio monitor">
+      <div class="section-title"><h2>Levels</h2><span>Live monitor</span></div>
+      <div class="meter"><span><b>Meet</b><small>Other people</small></span><i><b id="meetBar"></b></i><em id="meetText">Standby</em></div>
+      <div class="meter"><span><b>Mic</b><small>Your voice</small></span><i><b id="micBar"></b></i><em id="micText">Standby</em></div>
+      <div class="meter output"><span><b>Recording</b><small>Final file</small></span><i><b id="outputBar"></b></i><em id="outputText">Standby</em></div>
+    </section>
+
+    <fieldset id="modes" class="modes">
+      <legend>Recording type</legend>
+      <label><input type="radio" name="mode" value="audio" checked><span><b>Audio</b><small>MP3 · small file</small></span><i></i></label>
+      <label><input type="radio" name="mode" value="video"><span><b>Video</b><small>WEBM file</small></span><i></i></label>
+    </fieldset>
+
+    <section class="mic-deck">
+      <div class="section-title"><h2>Microphone</h2><span>Controlled here, not in Meet</span></div>
+      <div id="devicePicker" class="device-picker">
+        <span class="device-glyph">MIC</span>
+        <select id="micSelect" tabindex="-1" aria-hidden="true"><option value="">Enable mic to list devices</option></select>
+        <button id="micPickerButton" class="picker-trigger" type="button" aria-haspopup="listbox" aria-expanded="false"><span><b id="micPickerLabel">Microphone not enabled</b><small id="micPickerMeta">Choose an input after enabling</small></span></button>
+        <span class="chevron">⌄</span>
+      </div>
+      <button id="micButton" class="mic-control" hidden><span><b>Enable recording mic</b><small>Independent from Google Meet</small></span><i>OFF</i></button>
+    </section>
+
+    <div class="actions">
+      <button id="startButton" class="primary"><span><b>Start recording</b><small>Capture the active Meet tab</small></span><i>REC</i></button>
+      <button id="stopButton" class="stop" hidden><span><b>Stop and save</b><small>Download the recording</small></span><i>STOP</i></button>
+    </div>
+    <p id="status" class="status" role="status">Open a Google Meet tab to begin.</p>
+    <footer>Private by design <i></i> No upload or account required</footer>
+
+    <section id="micSheet" class="mic-sheet" aria-labelledby="micSheetTitle" hidden>
+      <header><button id="micSheetBack" type="button"><i>←</i><span>Back</span></button><span>Audio input</span></header>
+      <div class="sheet-intro"><small>MICROPHONE</small><h2 id="micSheetTitle">Choose an input</h2><p>The selected microphone is used only by this recording.</p></div>
+      <div id="micMenu" class="mic-menu" role="listbox" aria-label="Choose recording microphone" hidden></div>
+      <p class="sheet-note">You can switch inputs while recording without interrupting Meet audio.</p>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

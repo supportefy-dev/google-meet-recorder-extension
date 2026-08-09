@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Video player</title>
+  <desc id="description">A yellow rounded square with a solid white play icon and white borders.</desc>
+  <rect x="17" y="15" width="478" height="478" rx="132" fill="#FFC745" stroke="#FFFFFF" stroke-width="16"/>
+  <path d="M176 124 394 255 176 386Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="16" stroke-linejoin="round"/>
+</svg>
