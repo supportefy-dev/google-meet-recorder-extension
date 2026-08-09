@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img alt="Version 4.4.5" src="https://img.shields.io/badge/version-4.4.5-FFC745?style=flat-square&labelColor=202724">
+  <img alt="Version 4.4.6" src="https://img.shields.io/badge/version-4.4.6-FFC745?style=flat-square&labelColor=202724">
   <img alt="Chrome 116+" src="https://img.shields.io/badge/Chrome-116%2B-202724?style=flat-square&logo=googlechrome&logoColor=white">
   <img alt="Manifest V3" src="https://img.shields.io/badge/Manifest-V3-202724?style=flat-square">
   <img alt="Local processing" src="https://img.shields.io/badge/processing-100%25%20local-2F7D5A?style=flat-square">

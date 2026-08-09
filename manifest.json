@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Google Meet Recorder",
-  "version": "4.4.5",
+  "version": "4.4.6",
   "description": "Record Google Meet tab audio, a manually controlled microphone, or video locally.",
   "minimum_chrome_version": "116",
   "permissions": [
