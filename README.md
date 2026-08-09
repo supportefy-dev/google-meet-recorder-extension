@@ -24,6 +24,31 @@
 - **Live signal meters** — monitor Meet, microphone, and final recording levels while capturing.
 - **Private by design** — no account, server, telemetry, or cloud upload is used by the extension.
 
+## Interface
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="assets/screenshots/recorder-ready.png" alt="Google Meet Recorder ready to start" width="340"><br>
+      <sub><strong>Ready to record</strong> — choose audio or video and review input levels.</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="assets/screenshots/recorder-active.png" alt="Google Meet Recorder during an active recording" width="340"><br>
+      <sub><strong>Live recording</strong> — monitor signal health and control the microphone independently.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="assets/screenshots/microphone-selector.png" alt="Recording microphone selection screen" width="340"><br>
+      <sub><strong>Microphone selection</strong> — switch inputs without interrupting Meet audio.</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="assets/screenshots/microphone-permission.png" alt="One-time recording microphone permission screen" width="440"><br>
+      <sub><strong>One-time permission</strong> — microphone access is requested only when enabled.</sub>
+    </td>
+  </tr>
+</table>
+
 ## Requirements
 
 - Google Chrome 116 or newer.
@@ -101,7 +126,7 @@ Always obtain consent from meeting participants and follow the recording laws an
 ## Project structure
 
 ```text
-├── assets/                 Repository artwork
+├── assets/                 Repository artwork and product screenshots
 ├── icons/                  Chrome toolbar and extension icons
 ├── vendor/                 Locally bundled MP3 encoder and license
 ├── manifest.json           Manifest V3 extension definition
@@ -150,4 +175,3 @@ MP3 encoding uses the locally bundled [`@breezystack/lamejs`](https://www.npmjs.
 ## Contributing
 
 Issues and focused pull requests are welcome. Keep changes local-first, avoid adding network services or telemetry, and include manual verification notes for recording changes.
-
