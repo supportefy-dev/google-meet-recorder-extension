@@ -1,0 +1,42 @@
+name: Validate extension
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check popup.js
+          node --check mic-permission.js
+          node --check offscreen.js
+          node --check service-worker.js
+
+      - name: Validate manifest and required assets
+        shell: pwsh
+        run: |
+          $manifest = Get-Content -Raw manifest.json | ConvertFrom-Json
+          if ($manifest.manifest_version -ne 3) { throw 'Expected Manifest V3.' }
+          foreach ($size in @('16', '32', '48', '128')) {
+            $path = $manifest.icons.$size
+            if (-not (Test-Path -LiteralPath $path)) { throw "Missing icon: $path" }
+          }
+          foreach ($path in @('popup.html', 'offscreen.html', 'service-worker.js', 'vendor/lamejs.iife.js')) {
+            if (-not (Test-Path -LiteralPath $path)) { throw "Missing required file: $path" }
+          }
+

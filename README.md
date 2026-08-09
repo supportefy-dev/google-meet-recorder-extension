@@ -59,7 +59,7 @@
 
 ### From a downloaded ZIP
 
-1. Download and extract the latest extension ZIP.
+1. Download the extension ZIP from the [latest GitHub Release](https://github.com/supportefy-dev/google-meet-recorder-extension/releases/latest), then extract it.
 2. Open `chrome://extensions` in Chrome.
 3. Enable **Developer mode**.
 4. Click **Load unpacked**.
@@ -174,4 +174,4 @@ MP3 encoding uses the locally bundled [`@breezystack/lamejs`](https://www.npmjs.
 
 ## Contributing
 
-Issues and focused pull requests are welcome. Keep changes local-first, avoid adding network services or telemetry, and include manual verification notes for recording changes.
+Issues and focused pull requests are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting changes. Keep changes local-first, avoid adding network services or telemetry, and include manual verification notes for recording changes.
