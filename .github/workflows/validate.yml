@@ -1,6 +1,7 @@
 name: Validate extension
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
@@ -39,4 +40,3 @@ jobs:
           foreach ($path in @('popup.html', 'offscreen.html', 'service-worker.js', 'vendor/lamejs.iife.js')) {
             if (-not (Test-Path -LiteralPath $path)) { throw "Missing required file: $path" }
           }
-
