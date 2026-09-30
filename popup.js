@@ -77,19 +77,17 @@ function renderMicMenu(devices, selectedId) {
   }
 }
 
-function formatDuration(startedAt, pausedAccumMs = 0) {
+function formatDuration(startedAt, pausedAccumMs = 0, now = Date.now()) {
   if (!startedAt) return '00:00:00';
-  const seconds = Math.max(0, Math.floor((Date.now() - startedAt - pausedAccumMs) / 1000));
+  const seconds = Math.max(0, Math.floor((now - startedAt - pausedAccumMs) / 1000));
   return [Math.floor(seconds / 3600), Math.floor(seconds / 60) % 60, seconds % 60]
     .map(value => String(value).padStart(2, '0')).join(':');
 }
 
-// While paused the offscreen clock is not advancing, so the popup timer holds still too
-// instead of drifting ahead using its own Date.now().
 function updateTimer() {
   if (!latestState.recording) { sessionTimer.textContent = '00:00:00'; return; }
-  if (latestState.paused) return;
-  sessionTimer.textContent = formatDuration(latestState.startedAt, latestState.pausedAccumMs);
+  const now = latestState.paused && latestState.pausedSince ? latestState.pausedSince : Date.now();
+  sessionTimer.textContent = formatDuration(latestState.startedAt, latestState.pausedAccumMs, now);
 }
 
 function setMeter(id, level, text) {
@@ -273,7 +271,7 @@ navigator.mediaDevices.addEventListener('devicechange', loadMicrophones);
 
 stopButton.addEventListener('click', async () => {
   stopButton.disabled = true;
-  status.textContent = 'Finishing recording, almost done';
+  status.textContent = 'Finishing recording...';
   await chrome.runtime.sendMessage({ type: 'STOP_RECORDING' });
 });
 

@@ -117,7 +117,7 @@ function createAudioWriter(audioContext, sourceNode, quality) {
       sink.disconnect();
     },
     finish() {
-      if (error) throw error;
+      if (error) throw new Error(`${isWav ? 'WAV' : 'MP3'} encoding failed: ${error.message}`);
       if (isWav) return { blob: wavWriter.finalize(), extension: 'wav' };
       const finalChunk = mp3Encoder.flush();
       if (finalChunk?.length) mp3Chunks.push(new Int8Array(finalChunk));
@@ -257,7 +257,8 @@ async function startRecording({ streamId, mode, title }) {
 async function stopRecording() {
   if (!state.recorder || state.recorder.state === 'inactive') return;
   clearInterval(state.timer);
-  await sendState({ phase: 'saving', message: state.mode === 'audio' ? 'Finishing audio, almost done' : 'Saving video, almost done' });
+  const finishing = state.mode === 'video' ? 'Saving video...' : state.settings?.audioQuality === 'wav' ? 'Finishing WAV...' : 'Finishing MP3...';
+  await sendState({ phase: 'saving', message: finishing });
   if (state.recorder.state === 'paused') state.recorder.resume();
   state.recorder.stop();
 }
@@ -272,7 +273,7 @@ async function pauseRecording() {
   state.mainWriter?.setPaused(true);
   state.meetOnlyWriter?.setPaused(true);
   state.micOnlyWriter?.setPaused(true);
-  await sendState({ recording: true, paused: true, message: 'Paused' });
+  await sendState({ recording: true, paused: true, pausedSince: state.pausedSince, message: 'Paused' });
 }
 
 async function resumeRecording() {
@@ -287,7 +288,7 @@ async function resumeRecording() {
   state.meetOnlyWriter?.setPaused(false);
   state.micOnlyWriter?.setPaused(false);
   const message = state.mode === 'audio' ? audioModeMessage(state.settings.audioQuality) : videoModeMessage(state.videoExtension, state.videoFallbackNote);
-  await sendState({ recording: true, paused: false, pausedAccumMs: state.pausedAccumMs, message });
+  await sendState({ recording: true, paused: false, pausedSince: null, pausedAccumMs: state.pausedAccumMs, message });
 }
 
 function microphoneConstraints(deviceId) {

@@ -26,6 +26,7 @@ const defaultState = {
   tabId: null,
   startedAt: null,
   paused: false,
+  pausedSince: null,
   pausedAccumMs: 0,
   meetLevel: 0,
   micLevel: 0,
