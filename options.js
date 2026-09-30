@@ -23,6 +23,7 @@ const buyButton = document.querySelector('#buyButton');
 const buyPrice = document.querySelector('#buyPrice');
 const proPrice = document.querySelector('#proPrice');
 const donateLink = document.querySelector('#donateLink');
+const freeTierMinutes = document.querySelector('#freeTierMinutes');
 const activateForm = document.querySelector('#activateForm');
 const licenseKeyInput = document.querySelector('#licenseKey');
 const activateButton = document.querySelector('#activateButton');
@@ -134,6 +135,7 @@ function renderEarlyBird() {
 }
 
 async function init() {
+  freeTierMinutes.textContent = String(config.freeLimits.maxMinutes);
   proPrice.textContent = `${currency(config.price)} one time`;
   buyPrice.textContent = currency(config.price);
   buyButton.href = config.paypalUrl;

@@ -172,11 +172,13 @@ function videoModeMessage(extension, note) {
   return 'Recording Meet video + audio';
 }
 
-const FREE_CAP_MESSAGE = 'Free recordings stop at 40 minutes. Saved. Pro removes the limit.';
+function freeCapMessage() {
+  return `Free recordings stop at ${MeetRecorderConfig.freeLimits.maxMinutes} minutes. Saved. Pro removes the limit.`;
+}
 
-function freeLimitWarning(minute) {
-  const remaining = MeetRecorderConfig.freeLimits.maxMinutes - minute;
-  return `Free recordings stop at 40 minutes, ${remaining} minute${remaining === 1 ? '' : 's'} left. Pro removes the limit.`;
+function freeLimitWarning(remainingMs) {
+  const remaining = Math.max(1, Math.ceil(remainingMs / 60000));
+  return `Free recordings stop at ${MeetRecorderConfig.freeLimits.maxMinutes} minutes, ${remaining} minute${remaining === 1 ? '' : 's'} left. Pro removes the limit.`;
 }
 
 // Settings and license are re-read and re-verified here, not trusted from the START_RECORDING
@@ -260,13 +262,13 @@ async function startRecording({ streamId, mode, title }) {
     const elapsedMs = Date.now() - state.startedAt - state.pausedAccumMs;
     const limit = MeetRecorderLimits.limitState(elapsedMs, state.licensed);
     if (limit.stop) {
-      stopRecording(FREE_CAP_MESSAGE).catch(() => {});
+      stopRecording(freeCapMessage()).catch(() => {});
       return;
     }
     sendState({
       recording: true, phase: 'recording', meetLevel, micLevel, includeMic: state.includeMic,
       outputLevel, micMuted: state.micMuted, paused: state.paused,
-      message: limit.warn ? freeLimitWarning(limit.warn)
+      message: limit.warn ? freeLimitWarning(limit.remainingMs)
         : state.paused ? 'Paused'
         : (outputLevel > .004 ? 'Recorder hears sound' : 'Waiting for sound'),
     }).catch(() => {});

@@ -122,6 +122,7 @@ function render(state = {}) {
   pauseButtonIcon.textContent = state.paused ? 'PLAY' : 'PAUSE';
   pausePro.hidden = licensedNow;
   freeLimitNote.hidden = licensedNow;
+  freeLimitNote.textContent = `Free: up to ${MeetRecorderConfig.freeLimits.maxMinutes} min`;
   videoModePro.hidden = licensedNow;
   const hearing = recording && state.outputLevel > .004;
   healthText.textContent = !recording ? 'Ready to capture' : hearing ? 'Capture signal is healthy' : 'Waiting for audible signal';
