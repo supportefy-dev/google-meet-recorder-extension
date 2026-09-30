@@ -1,11 +1,11 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner-dark-1280x480.png">
-    <img src="assets/media-pack/repository/readme-banner-1280x480.png" alt="Meet Recorder: record locally and keep the file" width="100%">
+    <img src="assets/media-pack/repository/readme-banner-1280x480.png" alt="Recorder for Google Meet: record locally and keep the file" width="100%">
   </picture>
 </p>
 
-<h1 align="center">Meet Recorder</h1>
+<h1 align="center">Recorder for Google Meet&trade;</h1>
 
 <p align="center">
   Record audio or video from your active Google Meet tab and save it straight to your computer.<br>
@@ -34,7 +34,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/readme/popup-demo.gif" alt="The Meet Recorder popup recording Meet audio, adding the microphone, then saving the file" width="380">
+  <img src="assets/readme/popup-demo.gif" alt="The Recorder for Google Meet popup recording Meet audio, adding the microphone, then saving the file" width="380">
 </p>
 
 ## Features
@@ -80,7 +80,7 @@
 
 Pro is a one-time $4.99 purchase, paid through PayPal, with the license key emailed to your PayPal address.
 
-**Early bird: Pro is free forever for the first 100 users.** Email bash@supportefy.com to claim your key.
+**Early bird: the first 100 people who claim get a free Pro key by email; keys never expire.** Email bash@supportefy.com to claim your key.
 
 | Feature | Free | Pro |
 | --- | :-: | :-: |
@@ -101,7 +101,7 @@ A free recording that reaches 40 minutes is saved automatically, with a warning 
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/how-it-works-dark.png">
-  <img src="assets/readme/how-it-works-light.png" alt="The Google Meet tab is captured by Meet Recorder inside Chrome and saved to your Downloads folder; everything stays on your computer" width="100%">
+  <img src="assets/readme/how-it-works-light.png" alt="The Google Meet tab is captured by Recorder for Google Meet inside Chrome and saved to your Downloads folder; everything stays on your computer" width="100%">
 </picture>
 
 ## Quick start
@@ -167,7 +167,7 @@ A free recording that reaches 40 minutes is saved automatically, with a warning 
 3. Enable **Developer mode**.
 4. Click **Load unpacked**.
 5. Select the extracted folder that directly contains `manifest.json`.
-6. Reload your Google Meet tab, then pin **Meet Recorder** from Chrome's Extensions menu.
+6. Reload your Google Meet tab, then pin **Recorder for Google Meet** from Chrome's Extensions menu.
 
 From 4.4.7 on, the extension keeps the same ID in every version, so loading a newer folder keeps your settings. Remove the older unpacked copy first to avoid duplicate cards.
 
@@ -272,8 +272,10 @@ Copyright (c) 2026 Supportefy LLC. All rights reserved. The source is public so 
 
 MP3 encoding uses the bundled [`@breezystack/lamejs`](https://www.npmjs.com/package/@breezystack/lamejs) encoder under its own LGPL-3.0 license, included at [`vendor/lamejs.LICENSE`](vendor/lamejs.LICENSE).
 
+Google Meet is a trademark of Google LLC. Not affiliated with or endorsed by Google.
+
 ## Support development
 
-Meet Recorder's free tier needs no purchase. If it is useful to you, you can [make a one-time donation on PayPal](https://paypal.me/BashOM), separately from a Pro purchase; donations do not unlock features.
+Recorder for Google Meet's free tier needs no purchase. If it is useful to you, you can [make a one-time donation on PayPal](https://paypal.me/BashOM), separately from a Pro purchase; donations do not unlock features.
 
 You can also help by [reporting a bug](https://github.com/supportefy-dev/meet-recorder/issues) or sharing the project.

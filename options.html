@@ -4,7 +4,7 @@
   <link rel="icon" type="image/png" href="icons/icon-32.png">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Meet Recorder Settings</title>
+  <title>Recorder for Google Meet™ Settings</title>
   <link rel="stylesheet" href="popup.css">
   <link rel="stylesheet" href="options.css">
 </head>
@@ -12,7 +12,7 @@
   <main class="page">
     <header class="topbar">
       <span class="brand" aria-hidden="true"><i></i></span>
-      <div class="identity"><h1>Meet Recorder</h1><p>Recording settings</p></div>
+      <div class="identity"><h1>Recorder for Google Meet<sup>™</sup></h1><p>Recording settings</p></div>
     </header>
 
     <section class="card" aria-labelledby="recordingHeading">
@@ -54,7 +54,7 @@
       <div class="pro-head">
         <div>
           <span class="pro-pill">PRO</span>
-          <h2 id="proHeading">Meet Recorder Pro</h2>
+          <h2 id="proHeading">Recorder Pro</h2>
           <p>One payment. Every Pro feature, for good.</p>
         </div>
         <p class="pro-price"><strong id="proPrice">$4.99</strong><small>one time</small></p>
@@ -73,10 +73,11 @@
 
       <div id="proUnlicensed" hidden>
         <div id="earlyBirdBlock" class="early-bird" hidden>
-          <b>Early bird:</b> the first <span id="earlyBirdSeats">100</span> users get Pro free, forever.
+          <b>Early bird:</b> the first <span id="earlyBirdSeats">100</span> people who claim get a free Pro key by email; keys never expire.
           <a id="earlyBirdLink" href="#">Email us to claim your key</a>.
         </div>
-        <a id="buyButton" class="primary buy-button" href="#" target="_blank" rel="noopener noreferrer">Buy Meet Recorder Pro &middot; <span id="buyPrice">$4.99</span></a>
+        <a id="buyButton" class="primary buy-button" href="#" target="_blank" rel="noopener noreferrer">Buy Recorder Pro &middot; <span id="buyPrice">$4.99</span></a>
+        <p class="hint">Sold by Supportefy LLC through PayPal, not by Google.</p>
         <p class="hint">Your license key is emailed to your PayPal address after payment.</p>
         <form id="activateForm" class="activate-form">
           <label for="licenseKey">License key</label>
@@ -95,6 +96,8 @@
     </section>
 
     <p class="save-status" id="saveStatus" role="status" aria-live="polite">&nbsp;</p>
+
+    <footer class="page-footer">Google Meet is a trademark of Google LLC. Not affiliated with or endorsed by Google.</footer>
   </main>
   <script src="lib/config.js"></script>
   <script src="lib/filename.js"></script>

@@ -1,6 +1,6 @@
 # Privacy policy
 
-Meet Recorder is a Chrome extension that records Google Meet audio or video on your own computer. This policy explains what the extension handles and where it goes.
+Recorder for Google Meet™ is a Chrome extension that records Google Meet audio or video on your own computer. This policy explains what the extension handles and where it goes. Google Meet is a trademark of Google LLC. This extension is not affiliated with or endorsed by Google.
 
 Effective date: 2026-09-30
 
@@ -19,9 +19,11 @@ Nothing is collected by the developer. The extension has no account, server, ana
 
 No data is sold, shared with, or transferred to any third party. No data is used for purposes unrelated to recording, or to determine creditworthiness or for lending.
 
+The use of information handled by this extension will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.
+
 ## Buying Pro
 
-Meet Recorder Pro is bought on PayPal's website through a payment link. The extension never sees or stores payment details. After payment, Supportefy LLC uses the email address PayPal shares with the seller to send your license key, and keeps a record of the key issued to that address. The same applies when you email to claim an early-bird key.
+Recorder Pro is bought on PayPal's website through a payment link. The extension never sees or stores payment details. After payment, Supportefy LLC uses the email address PayPal shares with the seller to send your license key, and keeps a record of the key issued to that address. The same applies when you email to claim an early-bird key.
 
 ## Links
 

@@ -287,7 +287,7 @@ async function stopRecording(finalMessage) {
 
 async function pauseRecording() {
   const licenseStatus = await MeetRecorderLicense.current();
-  if (!licenseStatus.pro) throw new Error('Pause and resume need Meet Recorder Pro.');
+  if (!licenseStatus.pro) throw new Error('Pause and resume need Recorder Pro.');
   if (!state.recorder || state.recorder.state === 'inactive' || state.paused) return;
   state.paused = true;
   state.pausedSince = Date.now();
@@ -300,7 +300,7 @@ async function pauseRecording() {
 
 async function resumeRecording() {
   const licenseStatus = await MeetRecorderLicense.current();
-  if (!licenseStatus.pro) throw new Error('Pause and resume need Meet Recorder Pro.');
+  if (!licenseStatus.pro) throw new Error('Pause and resume need Recorder Pro.');
   if (!state.recorder || !state.paused) return;
   state.pausedAccumMs += Date.now() - state.pausedSince;
   state.pausedSince = null;
@@ -358,7 +358,7 @@ async function enableMicrophone(deviceId) {
 
 async function switchMicrophone(deviceId) {
   const licenseStatus = await MeetRecorderLicense.current();
-  if (!MeetRecorderLimits.canControlMic(licenseStatus.pro)) throw new Error('Switching microphones needs Meet Recorder Pro.');
+  if (!MeetRecorderLimits.canControlMic(licenseStatus.pro)) throw new Error('Switching microphones needs Recorder Pro.');
   if (!state.micStream) throw new Error('Enable the recording microphone first.');
   const wasMuted = state.micMuted;
   const label = await connectMicrophone(deviceId);
@@ -374,7 +374,7 @@ async function switchMicrophone(deviceId) {
 
 async function setMicrophoneMuted(muted) {
   const licenseStatus = await MeetRecorderLicense.current();
-  if (!MeetRecorderLimits.canControlMic(licenseStatus.pro)) throw new Error('Muting the recording mic needs Meet Recorder Pro.');
+  if (!MeetRecorderLimits.canControlMic(licenseStatus.pro)) throw new Error('Muting the recording mic needs Recorder Pro.');
   if (!state.micStream) throw new Error('Enable the recording microphone first.');
   state.micMuted = muted;
   state.micGain.gain.setTargetAtTime(muted ? 0 : 1, state.audioContext.currentTime, .01);

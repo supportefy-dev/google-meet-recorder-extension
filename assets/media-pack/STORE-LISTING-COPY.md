@@ -4,7 +4,7 @@ Draft copy for owner review. Confirm the submitted build and screenshots match t
 
 ## Name
 
-Meet Recorder
+Recorder for Google Meet™
 
 ## Short description
 
@@ -12,7 +12,7 @@ Record Google Meet tab audio as MP3 locally, free up to 40 minutes, with Pro add
 
 ## Detailed description
 
-Meet Recorder captures audio from the Google Meet tab you choose and saves the finished file to your computer through Chrome Downloads. You can record the meeting audio alone or add your microphone when you want your voice in the file.
+Recorder for Google Meet™ captures audio from the Google Meet tab you choose and saves the finished file to your computer through Chrome Downloads. You can record the meeting audio alone or add your microphone when you want your voice in the file.
 
 - **Audio mode, free:** compact 64 kbps MP3, up to 40 minutes per recording (saved automatically at the cap).
 - **Optional recording mic, free:** enable it independently of Google Meet's own mute button; it stays on for the recording.
@@ -22,9 +22,11 @@ Meet Recorder captures audio from the Google Meet tab you choose and saves the f
 
 Open a Google Meet tab, select **Start recording**, and select **Stop and save** when finished. Chrome downloads the file automatically. Chrome 116 or newer is required.
 
-Meet Recorder Pro is an optional one-time $4.99 purchase (PayPal). Early bird: Pro is free forever for the first 100 users; email bash@supportefy.com to claim your key.
+Recorder Pro is an optional one-time $4.99 purchase (PayPal), sold by Supportefy LLC through PayPal, not by Google. Early bird: the first 100 people who claim get a free Pro key by email; keys never expire. Email bash@supportefy.com to claim your key.
 
 Only record meetings when participants have consented and when your workplace rules and local law allow it.
+
+Google Meet is a trademark of Google LLC. Not affiliated with or endorsed by Google.
 
 ## Support and privacy URLs
 

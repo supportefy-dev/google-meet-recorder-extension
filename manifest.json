@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Meet Recorder",
+  "name": "Recorder for Google Meet™",
   "version": "4.5.0",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1UMQ0UQZqlriVVGtOaHDTxeDCv7xBJZMnSz+L1mJfxx6VADZa1gsAT3Td2vHRsVGv6dfp00FmRSlYPFGxXZgWrbOBhUpudm+vVY1jiYC+Tiff78trhoqjGgd7X1RAb3lQSOt+2DjCb4phYmOrigxWodv6v7f0uzm9NiW67nb4zVg1NoQYwcdhicuYqshlWXSP0JJc/Nl8CnuPMtnDNjnO14uYfqo5g1JGG0zwZdoT03/Sxn/EDlbNjZy+F51tAdONNT+rlr6kIFn+Gh15Q+TdpUJvDuP3Bg9dZ2anl5BuD6GdnyQtO9Uj6ol5qKYbfxyAsKd8lr5dBMgu+rWvpAYcQIDAQAB",
   "description": "Record Google Meet tab audio, a manually controlled microphone, or video locally.",
@@ -32,7 +32,7 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Meet Recorder",
+    "default_title": "Recorder for Google Meet™",
     "default_icon": {
       "16": "icons/icon-16.png",
       "32": "icons/icon-32.png",

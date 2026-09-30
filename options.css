@@ -67,6 +67,7 @@ legend .pro-tag, .field label .pro-tag { margin-left: 6px; vertical-align: 1px; 
 .donate-line { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 8.5px; }
 .donate-line a { color: #5f6f65; font-weight: 700; }
 .save-status { min-height: 14px; margin-top: 10px; color: var(--muted); font-size: 8.5px; text-align: center; }
+.page-footer { margin: 20px 0 0; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 8.5px; text-align: center; }
 
 @media (max-width: 420px) {
   .activate-form { grid-template-columns: 1fr; }

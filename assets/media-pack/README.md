@@ -1,4 +1,4 @@
-# Meet Recorder media pack
+# Recorder for Google Meet media pack
 
 Editable SVG artwork and exported PNGs for the extension, Chrome Web Store listing, README, and GitHub social preview. The design uses the existing yellow play mark, warm paper, dark ink, and green accent. No Google logo or endorsement claim appears in the artwork.
 

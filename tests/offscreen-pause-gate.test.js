@@ -24,12 +24,12 @@ function loadOffscreen({ licensed }) {
 
 test('pauseRecording refuses when there is no license', async () => {
   const offscreen = loadOffscreen({ licensed: false });
-  await assert.rejects(() => offscreen.pauseRecording(), /Meet Recorder Pro/);
+  await assert.rejects(() => offscreen.pauseRecording(), /Recorder Pro/);
 });
 
 test('resumeRecording refuses when there is no license', async () => {
   const offscreen = loadOffscreen({ licensed: false });
-  await assert.rejects(() => offscreen.resumeRecording(), /Meet Recorder Pro/);
+  await assert.rejects(() => offscreen.resumeRecording(), /Recorder Pro/);
 });
 
 test('pauseRecording passes the license gate when licensed (no active recorder is a separate, benign no-op)', async () => {
@@ -42,7 +42,7 @@ test('a fake pro flag with no real key does not unlock the gate', async () => {
   // contract by asserting the gate only opens when current() itself reports pro:true.
   const offscreen = loadOffscreen({ licensed: false });
   global.MeetRecorderLicense = { current: async () => ({ pro: false, spoofed: true }) };
-  await assert.rejects(() => offscreen.pauseRecording(), /Meet Recorder Pro/);
+  await assert.rejects(() => offscreen.pauseRecording(), /Recorder Pro/);
 });
 
 test('starting a video recording is refused without a license', async () => {
@@ -55,10 +55,10 @@ test('starting a video recording is refused without a license', async () => {
 
 test('muting the recording mic is refused without a license', async () => {
   const offscreen = loadOffscreen({ licensed: false });
-  await assert.rejects(() => offscreen.setMicrophoneMuted(true), /Meet Recorder Pro/);
+  await assert.rejects(() => offscreen.setMicrophoneMuted(true), /Recorder Pro/);
 });
 
 test('switching the recording mic is refused without a license', async () => {
   const offscreen = loadOffscreen({ licensed: false });
-  await assert.rejects(() => offscreen.switchMicrophone('device-2'), /Meet Recorder Pro/);
+  await assert.rejects(() => offscreen.switchMicrophone('device-2'), /Recorder Pro/);
 });

@@ -130,7 +130,7 @@ function renderEarlyBird() {
   if (!config.earlyBird?.open) { earlyBirdBlock.hidden = true; return; }
   earlyBirdBlock.hidden = false;
   earlyBirdSeats.textContent = String(config.earlyBird.seats);
-  const subject = encodeURIComponent('Meet Recorder early bird key');
+  const subject = encodeURIComponent('Recorder for Google Meet early bird key');
   earlyBirdLink.href = `mailto:${config.earlyBird.claimEmail}?subject=${subject}`;
 }
 
