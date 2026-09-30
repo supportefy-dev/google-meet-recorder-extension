@@ -1,4 +1,7 @@
+importScripts('lib/config.js', 'lib/license.js');
+
 const OFFSCREEN_DOCUMENT = 'offscreen.html';
+const MEET_URL_PREFIX = 'https://meet.google.com/';
 let creatingOffscreen = null;
 let offscreenReady = false;
 let readyResolvers = [];
@@ -22,6 +25,8 @@ const defaultState = {
   mode: null,
   tabId: null,
   startedAt: null,
+  paused: false,
+  pausedAccumMs: 0,
   meetLevel: 0,
   micLevel: 0,
   outputLevel: 0,
@@ -33,6 +38,11 @@ const defaultState = {
 async function setState(patch) {
   const current = (await chrome.storage.local.get('recorderState')).recorderState || defaultState;
   await chrome.storage.local.set({ recorderState: { ...current, ...patch } });
+}
+
+async function isLicensed() {
+  const status = await MeetRecorderLicense.current();
+  return Boolean(status.pro);
 }
 
 async function ensureOffscreenDocument() {
@@ -80,8 +90,44 @@ async function sendToOffscreen(message) {
   return chrome.runtime.sendMessage({ ...message, target: 'offscreen' });
 }
 
+async function startRecordingOnTab(tab) {
+  if (!tab?.id || !tab.url?.startsWith(MEET_URL_PREFIX)) {
+    throw new Error('Open the Google Meet tab, then try again.');
+  }
+  await ensureOffscreenDocument();
+  const streamId = await chrome.tabCapture.getMediaStreamId({ targetTabId: tab.id });
+  await setState({
+    ...defaultState,
+    phase: 'starting',
+    mode: 'audio',
+    tabId: tab.id,
+    message: 'Connecting to Meet audio...',
+  });
+  const result = await sendToOffscreen({ type: 'START_RECORDING', streamId, mode: 'audio', tabId: tab.id, title: tab.title || '' });
+  if (!result?.ok) throw new Error(result?.error || 'Recorder engine could not start.');
+}
+
 chrome.runtime.onInstalled.addListener(() => {
   setState(defaultState).catch(() => {});
+});
+
+chrome.commands.onCommand.addListener(async command => {
+  if (command !== 'toggle-recording') return;
+  try {
+    if (!(await isLicensed())) {
+      await chrome.tabs.create({ url: `${chrome.runtime.getURL('options.html')}#pro` });
+      return;
+    }
+    const recorderState = (await chrome.storage.local.get('recorderState')).recorderState || defaultState;
+    if (recorderState.recording) {
+      await sendToOffscreen({ type: 'STOP_RECORDING' });
+      return;
+    }
+    const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+    await startRecordingOnTab(tab);
+  } catch (error) {
+    await setState({ recording: false, phase: 'error', message: error.message }).catch(() => {});
+  }
 });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -101,14 +147,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     if (message.type === 'START_RECORDING') {
       await ensureOffscreenDocument();
+      const tab = message.tabId ? await chrome.tabs.get(message.tabId).catch(() => null) : null;
       await setState({
         ...defaultState,
         phase: 'starting',
         mode: message.mode,
         tabId: message.tabId,
-        message: 'Connecting to Meet audio…',
+        message: 'Connecting to Meet audio...',
       });
-      const result = await sendToOffscreen(message);
+      const result = await sendToOffscreen({ ...message, title: tab?.title || '' });
       if (!result?.ok) throw new Error(result?.error || 'Recorder engine could not start.');
       sendResponse({ ok: true });
       return;
@@ -118,6 +165,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       const result = await sendToOffscreen({ type: 'STOP_RECORDING' });
       if (!result?.ok) throw new Error(result?.error || 'Recorder engine could not stop.');
       sendResponse({ ok: true });
+      return;
+    }
+
+    if (message.type === 'PAUSE_RECORDING' || message.type === 'RESUME_RECORDING') {
+      if (!(await isLicensed())) {
+        sendResponse({ ok: false, error: 'Pause and resume need Meet Recorder Pro.' });
+        return;
+      }
+      const result = await sendToOffscreen({ type: message.type });
+      sendResponse(result || { ok: true });
       return;
     }
 
@@ -140,8 +197,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === 'RECORDER_STATE') {
       await setState(message.state);
       if (message.state.recording === true) {
-        await chrome.action.setBadgeBackgroundColor({ color: '#ff5e68' });
-        await chrome.action.setBadgeText({ text: 'REC' });
+        await chrome.action.setBadgeBackgroundColor({ color: message.state.paused ? '#c08a2e' : '#ff5e68' });
+        await chrome.action.setBadgeText({ text: message.state.paused ? 'PAUS' : 'REC' });
       } else if (message.state.recording === false) {
         await chrome.action.setBadgeText({ text: '' });
       }
