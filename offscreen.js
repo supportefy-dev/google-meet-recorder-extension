@@ -26,6 +26,8 @@ const state = {
   paused: false,
   pausedSince: null,
   pausedAccumMs: 0,
+  licensed: false,
+  finalMessageOverride: null,
 };
 
 self.addEventListener('unhandledrejection', event => {
@@ -153,7 +155,7 @@ async function cleanup() {
     outputAnalyser: null, finalMix: null, chunks: [], timer: null, mode: null, startedAt: null,
     includeMic: false, micMuted: true, settings: null, title: '', videoExtension: 'webm',
     videoFallbackNote: '', mainWriter: null, meetOnlyWriter: null, micOnlyWriter: null,
-    paused: false, pausedSince: null, pausedAccumMs: 0,
+    paused: false, pausedSince: null, pausedAccumMs: 0, licensed: false, finalMessageOverride: null,
   });
 }
 
@@ -170,14 +172,23 @@ function videoModeMessage(extension, note) {
   return 'Recording Meet video + audio';
 }
 
+const FREE_CAP_MESSAGE = 'Free recordings stop at 40 minutes. Saved. Pro removes the limit.';
+
+function freeLimitWarning(minute) {
+  const remaining = MeetRecorderConfig.freeLimits.maxMinutes - minute;
+  return `Free recordings stop at 40 minutes, ${remaining} minute${remaining === 1 ? '' : 's'} left. Pro removes the limit.`;
+}
+
 // Settings and license are re-read and re-verified here, not trusted from the START_RECORDING
 // message: a compromised or stale popup/service-worker message must never unlock a Pro feature.
 async function startRecording({ streamId, mode, title }) {
   if (state.recorder) throw new Error('A recording is already running.');
   const rawSettings = await MeetRecorderSettings.load();
   const licenseStatus = await MeetRecorderLicense.current();
+  if (!MeetRecorderLimits.allowedMode(mode, licenseStatus.pro)) throw new Error('Video recording is a Pro feature.');
   state.mode = mode;
-  state.settings = MeetRecorderSettings.effective(rawSettings, Boolean(licenseStatus.pro));
+  state.licensed = Boolean(licenseStatus.pro);
+  state.settings = MeetRecorderSettings.effective(rawSettings, state.licensed);
   state.title = title || '';
   state.includeMic = false;
   state.micMuted = true;
@@ -246,17 +257,26 @@ async function startRecording({ streamId, mode, title }) {
     const meetLevel = signalLevel(state.tabAnalyser);
     const micLevel = signalLevel(state.micAnalyser);
     const outputLevel = signalLevel(state.outputAnalyser);
+    const elapsedMs = Date.now() - state.startedAt - state.pausedAccumMs;
+    const limit = MeetRecorderLimits.limitState(elapsedMs, state.licensed);
+    if (limit.stop) {
+      stopRecording(FREE_CAP_MESSAGE).catch(() => {});
+      return;
+    }
     sendState({
       recording: true, phase: 'recording', meetLevel, micLevel, includeMic: state.includeMic,
       outputLevel, micMuted: state.micMuted, paused: state.paused,
-      message: state.paused ? 'Paused' : (outputLevel > .004 ? 'Recorder hears sound' : 'Waiting for sound'),
+      message: limit.warn ? freeLimitWarning(limit.warn)
+        : state.paused ? 'Paused'
+        : (outputLevel > .004 ? 'Recorder hears sound' : 'Waiting for sound'),
     }).catch(() => {});
   }, 400);
 }
 
-async function stopRecording() {
+async function stopRecording(finalMessage) {
   if (!state.recorder || state.recorder.state === 'inactive') return;
   clearInterval(state.timer);
+  state.finalMessageOverride = finalMessage || null;
   const finishing = state.mode === 'video' ? 'Saving video...' : state.settings?.audioQuality === 'wav' ? 'Finishing WAV...' : 'Finishing MP3...';
   await sendState({ phase: 'saving', message: finishing });
   if (state.recorder.state === 'paused') state.recorder.resume();
@@ -335,6 +355,8 @@ async function enableMicrophone(deviceId) {
 }
 
 async function switchMicrophone(deviceId) {
+  const licenseStatus = await MeetRecorderLicense.current();
+  if (!MeetRecorderLimits.canControlMic(licenseStatus.pro)) throw new Error('Switching microphones needs Meet Recorder Pro.');
   if (!state.micStream) throw new Error('Enable the recording microphone first.');
   const wasMuted = state.micMuted;
   const label = await connectMicrophone(deviceId);
@@ -349,6 +371,8 @@ async function switchMicrophone(deviceId) {
 }
 
 async function setMicrophoneMuted(muted) {
+  const licenseStatus = await MeetRecorderLicense.current();
+  if (!MeetRecorderLimits.canControlMic(licenseStatus.pro)) throw new Error('Muting the recording mic needs Meet Recorder Pro.');
   if (!state.micStream) throw new Error('Enable the recording microphone first.');
   state.micMuted = muted;
   state.micGain.gain.setTargetAtTime(muted ? 0 : 1, state.audioContext.currentTime, .01);
@@ -400,7 +424,8 @@ async function saveRecording() {
     }
 
     const extraCount = files.length - 1;
-    const savedMessage = `Saved ${(totalBytes / 1048576).toFixed(1)} MB${extraCount ? ` across ${files.length} files` : ''}`;
+    const savedMessage = state.finalMessageOverride
+      || `Saved ${(totalBytes / 1048576).toFixed(1)} MB${extraCount ? ` across ${files.length} files` : ''}`;
     await cleanup();
     await sendState({ recording: false, phase: 'saved', message: savedMessage, meetLevel: 0, micLevel: 0, outputLevel: 0, paused: false });
   } catch (error) {
