@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1400" height="560" viewBox="0 0 1400 560">
+<defs>
+<linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#202724"/><stop offset="1" stop-color="#2F4338"/></linearGradient>
+<linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FBFAF6"/><stop offset="1" stop-color="#EFEDE5"/></linearGradient>
+</defs>
+<rect width="1400" height="560" fill="url(#dark)"/>
+<circle cx="1080" cy="280" r="245" fill="none" stroke="#FFFFFF" stroke-opacity=".12" stroke-width="1"/>
+<circle cx="1080" cy="280" r="205" fill="none" stroke="#FFC745" stroke-opacity=".35" stroke-width="2"/>
+<circle cx="1080" cy="280" r="280" fill="none" stroke="#FFC745" stroke-opacity=".13" stroke-width="1"/>
+<line x1="741" y1="219.0" x2="741" y2="341.0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="761" y1="260.6" x2="761" y2="299.4" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="781" y1="230.9" x2="781" y2="329.1" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="801" y1="242.8" x2="801" y2="317.2" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="821" y1="248.7" x2="821" y2="311.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="841" y1="224.9" x2="841" y2="335.1" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="861" y1="266.6" x2="861" y2="293.4" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="881" y1="224.9" x2="881" y2="335.1" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="901" y1="248.7" x2="901" y2="311.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="921" y1="242.8" x2="921" y2="317.2" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="941" y1="230.9" x2="941" y2="329.1" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="961" y1="260.6" x2="961" y2="299.4" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="981" y1="219.0" x2="981" y2="341.0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1001" y1="254.7" x2="1001" y2="305.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1021" y1="236.8" x2="1021" y2="323.2" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1041" y1="236.8" x2="1041" y2="323.2" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1061" y1="254.7" x2="1061" y2="305.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1081" y1="219.0" x2="1081" y2="341.0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1101" y1="260.6" x2="1101" y2="299.4" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1121" y1="230.9" x2="1121" y2="329.1" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1141" y1="242.8" x2="1141" y2="317.2" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1161" y1="248.7" x2="1161" y2="311.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1181" y1="224.9" x2="1181" y2="335.1" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1201" y1="266.6" x2="1201" y2="293.4" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1221" y1="224.9" x2="1221" y2="335.1" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1241" y1="248.7" x2="1241" y2="311.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1261" y1="242.8" x2="1261" y2="317.2" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1281" y1="230.9" x2="1281" y2="329.1" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1301" y1="260.6" x2="1301" y2="299.4" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1321" y1="219.0" x2="1321" y2="341.0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1341" y1="254.7" x2="1341" y2="305.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1361" y1="236.8" x2="1361" y2="323.2" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1381" y1="236.8" x2="1381" y2="323.2" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1401" y1="254.7" x2="1401" y2="305.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="1421" y1="219.0" x2="1421" y2="341.0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<rect x="935" y="135" width="290" height="290" rx="69.6" fill="#FFFFFF" />
+<rect x="948.05" y="148.05" width="263.9" height="263.9" rx="56.55" fill="#FFC745" />
+<path d="M 1048.1 219.1 Q 1045.49 213.3 1048.1 207.5 Q 1050.7099999999998 204.6 1058.54 216.2 L 1138.0 273.475 Q 1147.135 280.0 1138.0 286.525 L 1058.54 343.79999999999995 Q 1048.1 355.4 1048.1 340.9 Z" fill="#FFFFFF"/>
+<text x="84" y="132" fill="#FFC745" font-family="Segoe UI,Arial,sans-serif" font-size="19" font-weight="700" letter-spacing="4" text-anchor="start">PRIVATE · LOCAL · YOUR FILE</text>
+<text x="78" y="270" fill="#FFFFFF" font-family="Segoe UI,Arial,sans-serif" font-size="78" font-weight="700" letter-spacing="-3" text-anchor="start">Meet Recorder</text>
+<text x="82" y="329" fill="#D5DED7" font-family="Segoe UI,Arial,sans-serif" font-size="29" font-weight="400" letter-spacing="0" text-anchor="start">Capture meeting audio or video on your device.</text>
+<rect x="83" y="396" width="168" height="44" rx="22" fill="#FFC745"/>
+<text x="167" y="425" fill="#202724" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="1" text-anchor="middle">MP3 AUDIO</text>
+<rect x="264" y="396" width="187" height="44" rx="22" fill="#FFFFFF" fill-opacity=".12"/>
+<text x="357" y="425" fill="#FFFFFF" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="1" text-anchor="middle">WEBM VIDEO</text>
+</svg>

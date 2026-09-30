@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="640" viewBox="0 0 1280 640">
+<defs>
+<linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#202724"/><stop offset="1" stop-color="#2F4338"/></linearGradient>
+<linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FBFAF6"/><stop offset="1" stop-color="#EFEDE5"/></linearGradient>
+</defs>
+<rect width="1280" height="640" fill="url(#dark)"/>
+<circle cx="970" cy="320" r="262" fill="none" stroke="#FFFFFF" stroke-opacity=".12" stroke-width="1"/>
+<circle cx="970" cy="320" r="220" fill="none" stroke="#FFC745" stroke-opacity=".38" stroke-width="2"/>
+<line x1="727" y1="257.0" x2="727" y2="383.0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="747" y1="300.0" x2="747" y2="340.0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="767" y1="269.3" x2="767" y2="370.7" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="787" y1="281.6" x2="787" y2="358.4" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="807" y1="287.7" x2="807" y2="352.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="827" y1="263.1" x2="827" y2="376.9" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="847" y1="306.1" x2="847" y2="333.9" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="867" y1="263.1" x2="867" y2="376.9" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="887" y1="287.7" x2="887" y2="352.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="907" y1="281.6" x2="907" y2="358.4" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="927" y1="269.3" x2="927" y2="370.7" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="947" y1="300.0" x2="947" y2="340.0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="967" y1="257.0" x2="967" y2="383.0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="987" y1="293.9" x2="987" y2="346.1" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1007" y1="275.4" x2="1007" y2="364.6" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1027" y1="275.4" x2="1027" y2="364.6" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1047" y1="293.9" x2="1047" y2="346.1" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1067" y1="257.0" x2="1067" y2="383.0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1087" y1="300.0" x2="1087" y2="340.0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1107" y1="269.3" x2="1107" y2="370.7" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1127" y1="281.6" x2="1127" y2="358.4" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1147" y1="287.7" x2="1147" y2="352.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1167" y1="263.1" x2="1167" y2="376.9" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1187" y1="306.1" x2="1187" y2="333.9" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1207" y1="263.1" x2="1207" y2="376.9" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<line x1="1227" y1="287.7" x2="1227" y2="352.3" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.17"/>
+<rect x="835" y="185" width="270" height="270" rx="64.8" fill="#FFFFFF" />
+<rect x="847.15" y="197.15" width="245.7" height="245.7" rx="52.65" fill="#FFC745" />
+<path d="M 940.3 263.3 Q 937.87 257.9 940.3 252.5 Q 942.7299999999999 249.8 950.02 260.6 L 1024.0 313.925 Q 1032.505 320.0 1024.0 326.075 L 950.02 379.4 Q 940.3 390.2 940.3 376.7 Z" fill="#FFFFFF"/>
+<text x="72" y="142" fill="#FFC745" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3" text-anchor="start">RECORD ON YOUR DEVICE</text>
+<text x="68" y="294" fill="#FFFFFF" font-family="Segoe UI,Arial,sans-serif" font-size="78" font-weight="700" letter-spacing="-3" text-anchor="start">Meet Recorder</text>
+<text x="73" y="360" fill="#D5DED7" font-family="Segoe UI,Arial,sans-serif" font-size="30" font-weight="400" letter-spacing="0" text-anchor="start">Google Meet audio and video, saved locally.</text>
+<rect x="72" y="429" width="333" height="54" rx="27" fill="#FFC745"/>
+<text x="239" y="465" fill="#202724" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="0.3" text-anchor="middle">MP3 AUDIO  ·  WEBM VIDEO</text>
+</svg>
