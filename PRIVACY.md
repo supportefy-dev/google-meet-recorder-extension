@@ -12,7 +12,8 @@ Nothing is collected by the developer. The extension has no account, server, ana
 
 - **Meeting audio and video.** When you click **Start recording**, the extension captures the active Google Meet tab using Chrome's tab capture. Recording and encoding happen inside Chrome, and the finished MP3 or WEBM file is saved to your computer through Chrome's download manager. Recordings are never uploaded or sent anywhere.
 - **Microphone audio.** Only if you enable the recording microphone, the extension captures the input you select and mixes it into the recording. Microphone access is requested through Chrome's standard permission prompt, and you can revoke it at any time.
-- **Settings.** The extension stores the selected microphone ID, whether microphone permission was granted, and the current recorder status in `chrome.storage.local` on your device. This data never leaves your browser and is removed when you uninstall the extension.
+- **Settings.** The extension stores the selected microphone ID, whether microphone permission was granted, the current recorder status, your recording preferences, and, if you activate Pro, your license key text in `chrome.storage.local` on your device. This data never leaves your browser and is removed when you uninstall the extension.
+- **License key.** A Pro license key is checked entirely offline, on your device, using public-key cryptography built into Chrome. Activating a key never contacts a server; the extension only reads the key text you paste in.
 
 ## Sharing and sale of data
 

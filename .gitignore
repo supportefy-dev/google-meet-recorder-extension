@@ -7,3 +7,6 @@ meet-recorder-*.zip
 Thumbs.db
 .vscode/
 .idea/
+
+# Local render-check screenshots
+.review/

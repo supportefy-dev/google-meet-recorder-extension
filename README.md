@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img alt="Version 4.4.7" src="https://img.shields.io/badge/version-4.4.7-FFC745?style=flat-square&labelColor=202724">
+  <img alt="Version 4.5.0" src="https://img.shields.io/badge/version-4.5.0-FFC745?style=flat-square&labelColor=202724">
   <img alt="Chrome 116+" src="https://img.shields.io/badge/Chrome-116%2B-202724?style=flat-square&logo=googlechrome&logoColor=white">
   <img alt="Local processing" src="https://img.shields.io/badge/processing-100%25%20local-2F7D5A?style=flat-square">
   <a href="https://paypal.me/BashOM"><img alt="Donate with PayPal" src="https://img.shields.io/badge/donate-PayPal-0070BA?style=flat-square&logo=paypal&logoColor=white"></a>
@@ -32,6 +32,24 @@
 4. Click **Stop and save** when you are done. Chrome downloads the file automatically.
 
 Requires Google Chrome 116 or newer.
+
+## Free vs Pro
+
+Every 4.4.x feature stays free forever. Pro is a one-time $4.99 purchase, paid through PayPal, with the license key emailed to your PayPal address.
+
+**Early bird: Pro is free forever for the first 100 users.** Email bash@supportefy.com to claim your key.
+
+| Feature | Free | Pro |
+| --- | --- | --- |
+| MP3 64 kbps audio, WEBM video, recording mic, live meters | Yes | Yes |
+| MP4 video (falls back to WEBM when Chrome cannot encode it) | | Yes |
+| MP3 128/192 kbps and lossless WAV audio | | Yes |
+| Separate Meet-only and mic-only files alongside the main recording | | Yes |
+| Pause and resume, with the timer excluding paused time | | Yes |
+| Custom file name template and a Downloads subfolder | | Yes |
+| Keyboard shortcut to start or stop (default Alt+Shift+R) | | Yes |
+
+To activate: open the extension's **Settings**, buy Pro or claim an early-bird key by email, then paste the key and click **Activate**.
 
 ## What it records
 
