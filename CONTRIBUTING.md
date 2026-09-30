@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve Google Meet Recorder.
+Thanks for helping improve Meet Recorder.
 
 ## Before you start
 

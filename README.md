@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="assets/repository-banner.png" alt="Google Meet Recorder — record Meet audio and video locally" width="100%">
+  <img src="assets/repository-banner.png" alt="Meet Recorder: record Google Meet audio and video locally" width="100%">
 </p>
 
-<h1 align="center">Google Meet Recorder</h1>
+<h1 align="center">Meet Recorder</h1>
 
 <p align="center">
   A privacy-first Chrome extension for recording Google Meet audio or video directly on your computer.
 </p>
 
 <p align="center">
-  <img alt="Version 4.4.6" src="https://img.shields.io/badge/version-4.4.6-FFC745?style=flat-square&labelColor=202724">
+  <img alt="Version 4.4.7" src="https://img.shields.io/badge/version-4.4.7-FFC745?style=flat-square&labelColor=202724">
   <img alt="Chrome 116+" src="https://img.shields.io/badge/Chrome-116%2B-202724?style=flat-square&logo=googlechrome&logoColor=white">
   <img alt="Manifest V3" src="https://img.shields.io/badge/Manifest-V3-202724?style=flat-square">
   <img alt="Local processing" src="https://img.shields.io/badge/processing-100%25%20local-2F7D5A?style=flat-square">
@@ -29,11 +29,11 @@
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="assets/screenshots/recorder-ready.png" alt="Google Meet Recorder ready to start" width="340"><br>
+      <img src="assets/screenshots/recorder-ready.png" alt="Meet Recorder ready to start" width="340"><br>
       <sub><strong>Ready to record</strong> — choose audio or video and review input levels.</sub>
     </td>
     <td align="center" width="50%">
-      <img src="assets/screenshots/recorder-active.png" alt="Google Meet Recorder during an active recording" width="340"><br>
+      <img src="assets/screenshots/recorder-active.png" alt="Meet Recorder during an active recording" width="340"><br>
       <sub><strong>Live recording</strong> — monitor signal health and control the microphone independently.</sub>
     </td>
   </tr>
@@ -64,7 +64,7 @@
 3. Enable **Developer mode**.
 4. Click **Load unpacked**.
 5. Select the extracted extension folder that directly contains `manifest.json`.
-6. Reload your Google Meet tab, then pin **Google Meet Recorder** from Chrome's Extensions menu.
+6. Reload your Google Meet tab, then pin **Meet Recorder** from Chrome's Extensions menu.
 
 ### From source
 
@@ -112,6 +112,8 @@ Recording and encoding happen inside Chrome. The extension creates a local objec
 The extension stores only operational preferences and recorder state in `chrome.storage.local`, such as the selected microphone and current session status.
 
 Always obtain consent from meeting participants and follow the recording laws and workplace policies that apply to you.
+
+Full policy: [`PRIVACY.md`](PRIVACY.md).
 
 ## Permissions
 
@@ -171,6 +173,10 @@ Open `chrome://extensions`, click **Reload** on the extension card, then reload 
 ## Third-party software
 
 MP3 encoding uses the locally bundled [`@breezystack/lamejs`](https://www.npmjs.com/package/@breezystack/lamejs) encoder. Its LGPL-3.0 license is included at [`vendor/lamejs.LICENSE`](vendor/lamejs.LICENSE).
+
+## Support
+
+Meet Recorder is free. If it saves you time, you can support development with a donation on [PayPal](https://paypal.me/BashOM).
 
 ## Contributing
 
