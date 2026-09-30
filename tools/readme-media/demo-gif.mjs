@@ -16,6 +16,8 @@ if (!browserPath) {
 const work = mkdtempSync(join(tmpdir(), 'meet-recorder-gif-'));
 const output = join(root, 'assets', 'readme', 'popup-demo.gif');
 const FRAME_SECONDS = 0.16;
+const BACKDROP = '#E7E5DE';
+const PADDING = 20;
 
 const browser = spawn(browserPath, [
   `--user-data-dir=${join(work, 'profile')}`, '--remote-debugging-pipe', '--enable-unsafe-extension-debugging',
@@ -67,18 +69,30 @@ try {
   const { targetId } = await send('Target.createTarget', { url: 'about:blank' });
   const { sessionId } = await send('Target.attachToTarget', { targetId, flatten: true });
   await send('Page.enable', {}, sessionId);
-  await send('Emulation.setDeviceMetricsOverride', { width: 420, height: 700, deviceScaleFactor: 2, mobile: false }, sessionId);
+  await send('Emulation.setDeviceMetricsOverride', { width: 460, height: 760, deviceScaleFactor: 2, mobile: false }, sessionId);
   await send('Page.navigate', { url: `chrome-extension://${id}/popup.html` }, sessionId);
   await wait(1500);
-  const rect = await send('Runtime.evaluate', {
-    expression: 'JSON.stringify(document.querySelector(".shell").getBoundingClientRect())', returnByValue: true,
-  }, sessionId);
-  const box = JSON.parse(rect.result.value);
-  const clip = { x: Math.floor(box.x) - 4, y: Math.floor(box.y) - 4, width: Math.ceil(box.width) + 8, height: Math.ceil(box.height) + 8 };
   const set = async (patch, settle = 180) => {
     await send('Runtime.evaluate', { expression: recorderState(patch), awaitPromise: true }, sessionId);
     await wait(settle);
   };
+  // The shell height changes between states (no action buttons while saving), so the clip is
+  // sized to the tallest state and padded on a backdrop; shorter frames then read as a popup
+  // resizing instead of a stray band of page background.
+  await send('Runtime.evaluate', {
+    expression: `document.documentElement.style.background = '${BACKDROP}'; document.body.style.background = '${BACKDROP}'; document.body.style.padding = '${PADDING}px';`,
+  }, sessionId);
+  await set({ recording: true, phase: 'recording', mode: 'audio', includeMic: true, micMuted: false, startedAt: Date.now(), message: 'Recording Meet audio + recording mic' }, 800);
+  const rect = await send('Runtime.evaluate', {
+    expression: `new Promise(done => {
+      const check = () => document.querySelector('#stopButton').hidden ? requestAnimationFrame(check) : done(JSON.stringify(document.querySelector('.shell').getBoundingClientRect()));
+      check();
+    })`,
+    awaitPromise: true, returnByValue: true,
+  }, sessionId);
+  const box = JSON.parse(rect.result.value);
+  const clip = { x: Math.floor(box.x) - PADDING, y: Math.floor(box.y) - PADDING, width: Math.ceil(box.width) + 2 * PADDING, height: Math.ceil(box.height) + 2 * PADDING };
+  await set({ recording: false, phase: 'idle', message: 'Open a Google Meet tab to begin.' });
 
   await capture(sessionId, clip, 1.6);
   await set({ recording: false, phase: 'starting', message: 'Connecting to Meet audio...' });
