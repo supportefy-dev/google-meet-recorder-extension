@@ -4,7 +4,7 @@
   <link rel="icon" type="image/png" href="icons/icon-32.png">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Meet Recorder</title>
+  <title>Recorder for Google Meet™</title>
   <link rel="stylesheet" href="popup.css">
   <link rel="stylesheet" href="popup-audit-fixes.css">
 </head>
@@ -12,7 +12,7 @@
   <main class="shell">
     <header class="topbar">
       <span class="brand" aria-hidden="true"><i></i></span>
-      <div class="identity"><h1>Meet Recorder</h1><p>Records locally on this computer</p></div>
+      <div class="identity"><h1>Recorder for Google Meet<sup>™</sup></h1><p>Records locally on this computer</p></div>
       <div class="state-group">
         <em id="proBadge" class="pro-badge" hidden>PRO</em>
         <span class="state"><i id="stateDot"></i><b id="stateLabel">READY</b></span>
@@ -56,9 +56,14 @@
     <p id="status" class="status" role="status">Open a Google Meet tab to begin.</p>
     <footer>
       <span>Private by design <i></i> No upload or account required</span>
-      <span><button type="button" id="settingsButton" class="footer-link" aria-label="Open Meet Recorder settings">Settings</button>
-      <a href="https://github.com/supportefy-dev/meet-recorder" target="_blank" rel="noopener noreferrer" aria-label="Open the Meet Recorder repository on GitHub">GitHub &#8599;</a></span>
+      <span><button type="button" id="settingsButton" class="footer-link" aria-label="Open Recorder for Google Meet settings">Settings</button>
+      <a href="https://github.com/supportefy-dev/meet-recorder" target="_blank" rel="noopener noreferrer" aria-label="Open the Recorder for Google Meet repository on GitHub">GitHub &#8599;</a></span>
     </footer>
+
+    <section id="recordingNotice" class="mic-sheet" aria-labelledby="recordingNoticeTitle" hidden>
+      <div class="sheet-intro"><small>BEFORE YOU RECORD</small><h2 id="recordingNoticeTitle">Recording notice</h2><p>This records this tab's audio, and video with Pro. Your microphone is recorded only if you enable it. Files save only on this computer; nothing is uploaded. Get everyone's consent where the law requires it.</p></div>
+      <button id="recordingNoticeAccept" type="button" class="primary"><span><b>I understand</b></span></button>
+    </section>
 
     <section id="micSheet" class="mic-sheet" aria-labelledby="micSheetTitle" hidden>
       <header><button id="micSheetBack" type="button"><i>←</i><span>Back</span></button><span>Audio input</span></header>
@@ -69,6 +74,7 @@
   </main>
   <script src="lib/config.js"></script>
   <script src="lib/license.js"></script>
+  <script src="lib/notice.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>

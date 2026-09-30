@@ -1,4 +1,4 @@
-importScripts('lib/config.js', 'lib/license.js');
+importScripts('lib/config.js', 'lib/license.js', 'lib/notice.js');
 
 const OFFSCREEN_DOCUMENT = 'offscreen.html';
 const MEET_URL_PREFIX = 'https://meet.google.com/';
@@ -124,6 +124,8 @@ chrome.commands.onCommand.addListener(async command => {
       await sendToOffscreen({ type: 'STOP_RECORDING' });
       return;
     }
+    const accepted = (await chrome.storage.local.get('recordingNoticeAccepted')).recordingNoticeAccepted;
+    if (MeetRecorderNotice.needsRecordingNotice(accepted)) return;
     const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
     await startRecordingOnTab(tab);
   } catch (error) {
@@ -171,7 +173,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     if (message.type === 'PAUSE_RECORDING' || message.type === 'RESUME_RECORDING') {
       if (!(await isLicensed())) {
-        sendResponse({ ok: false, error: 'Pause and resume need Meet Recorder Pro.' });
+        sendResponse({ ok: false, error: 'Pause and resume need Recorder Pro.' });
         return;
       }
       const result = await sendToOffscreen({ type: message.type });

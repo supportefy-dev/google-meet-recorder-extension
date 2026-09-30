@@ -22,6 +22,8 @@ const micMenu = document.querySelector('#micMenu');
 const micSheet = document.querySelector('#micSheet');
 const micSheetBack = document.querySelector('#micSheetBack');
 const status = document.querySelector('#status');
+const recordingNotice = document.querySelector('#recordingNotice');
+const recordingNoticeAccept = document.querySelector('#recordingNoticeAccept');
 const modes = document.querySelector('#modes');
 const sessionTimer = document.querySelector('#sessionTimer');
 const healthText = document.querySelector('#healthText');
@@ -215,9 +217,9 @@ videoModeInput.addEventListener('click', event => {
   openUpgrade();
 });
 
-startButton.addEventListener('click', async () => {
+async function beginRecording() {
   startButton.disabled = true;
-  status.textContent = 'Checking the active Meet tab…';
+  status.textContent = 'Checking the active Meet tab...';
   try {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (!tab?.id || !tab.url?.startsWith('https://meet.google.com/')) {
@@ -235,6 +237,22 @@ startButton.addEventListener('click', async () => {
   } finally {
     startButton.disabled = false;
   }
+}
+
+startButton.addEventListener('click', async () => {
+  const accepted = (await chrome.storage.local.get('recordingNoticeAccepted')).recordingNoticeAccepted;
+  if (MeetRecorderNotice.needsRecordingNotice(accepted)) {
+    recordingNotice.hidden = false;
+    recordingNoticeAccept.focus();
+    return;
+  }
+  await beginRecording();
+});
+
+recordingNoticeAccept.addEventListener('click', async () => {
+  await chrome.storage.local.set({ recordingNoticeAccepted: true });
+  recordingNotice.hidden = true;
+  await beginRecording();
 });
 
 async function openMicPermission() {
