@@ -35,11 +35,11 @@
 
 | Browser | Status | Notes |
 | --- | --- | --- |
-| Google Chrome 116+ | Supported | Tested on Chrome 153. |
-| Microsoft Edge 116+ | Supported | Tested on Edge 154. Install from `edge://extensions` with **Developer mode** on. |
-| Brave, Opera, Vivaldi | Expected to work, not tested | Built on the same Chromium engine; they need the `tabCapture` and `offscreen` extension APIs. Please [report](https://github.com/supportefy-dev/meet-recorder/issues) what you find. |
-| Firefox | Not supported | Firefox has no `tabCapture` or `offscreen` extension API and cannot capture tab audio, so a Meet recording is not possible. |
-| Safari | Not supported | Safari extensions have no tab-capture API and Safari cannot capture tab audio. |
+| <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/chrome/chrome_48x48.png" alt="" width="18" height="18"> Google Chrome 116+ | Supported | Tested on Chrome 153. |
+| <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/edge/edge_48x48.png" alt="" width="18" height="18"> Microsoft Edge 116+ | Supported | Tested on Edge 154. Install from `edge://extensions` with **Developer mode** on. |
+| <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/brave/brave_48x48.png" alt="" width="18" height="18"> <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/opera/opera_48x48.png" alt="" width="18" height="18"> <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/vivaldi/vivaldi_48x48.png" alt="" width="18" height="18"> Brave, Opera, Vivaldi | Expected to work, not tested | Built on the same Chromium engine; they need the `tabCapture` and `offscreen` extension APIs. Please [report](https://github.com/supportefy-dev/meet-recorder/issues) what you find. |
+| <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/firefox/firefox_48x48.png" alt="" width="18" height="18"> Firefox | Not supported | Firefox has no `tabCapture` or `offscreen` extension API and cannot capture tab audio, so a Meet recording is not possible. |
+| <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/safari/safari_48x48.png" alt="" width="18" height="18"> Safari | Not supported | Safari extensions have no tab-capture API and Safari cannot capture tab audio. |
 | Mobile browsers | Not supported | Chrome on Android and iOS has no extension support, and the extension is built for desktop tab capture. |
 
 ## What it records
