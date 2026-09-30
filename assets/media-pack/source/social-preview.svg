@@ -36,7 +36,7 @@
 <rect x="847.15" y="197.15" width="245.7" height="245.7" rx="52.65" fill="#FFC745" />
 <path d="M 940.3 263.3 Q 937.87 257.9 940.3 252.5 Q 942.7299999999999 249.8 950.02 260.6 L 1024.0 313.925 Q 1032.505 320.0 1024.0 326.075 L 950.02 379.4 Q 940.3 390.2 940.3 376.7 Z" fill="#FFFFFF"/>
 <text x="72" y="142" fill="#FFC745" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3" text-anchor="start">RECORD ON YOUR DEVICE</text>
-<text x="68" y="294" fill="#FFFFFF" font-family="Segoe UI,Arial,sans-serif" font-size="78" font-weight="700" letter-spacing="-3" text-anchor="start">Meet Recorder</text>
+<text x="68" y="294" fill="#FFFFFF" font-family="Segoe UI,Arial,sans-serif" font-size="50" font-weight="700" letter-spacing="-2" text-anchor="start">Recorder for Google Meet</text>
 <text x="73" y="360" fill="#D5DED7" font-family="Segoe UI,Arial,sans-serif" font-size="30" font-weight="400" letter-spacing="0" text-anchor="start">Google Meet audio and video, saved locally.</text>
 <rect x="72" y="429" width="333" height="54" rx="27" fill="#FFC745"/>
 <text x="239" y="465" fill="#202724" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="0.3" text-anchor="middle">MP3 AUDIO  ·  WEBM VIDEO</text>

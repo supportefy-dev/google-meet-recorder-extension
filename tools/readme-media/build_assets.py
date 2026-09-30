@@ -85,7 +85,7 @@ def diagram(theme):
     t = THEMES[theme]
     steps = [
         ("video", "Google Meet tab", "The meeting you choose"),
-        ("levels", "Meet Recorder", "Captures and encodes in Chrome"),
+        ("levels", "Recorder for Google Meet", "Captures and encodes in Chrome"),
         ("download", "Your Downloads", "MP3, WAV, WEBM or MP4"),
     ]
     card_w, card_h, gap, top = 300, 150, 70, 70
@@ -96,11 +96,14 @@ def diagram(theme):
         f'<rect x="{left - 30}" y="{top - 38}" width="{3 * card_w + 2 * gap + 60}" height="{card_h + 76}" rx="22" fill="none" stroke="{t["zone"]}" stroke-width="2" stroke-dasharray="8 7"/>',
         f'<text x="{left - 8}" y="{top - 14}" fill="{t["zone"]}" font-family="{FONT}" font-size="15" font-weight="700" letter-spacing="1.5">YOUR COMPUTER</text>',
     ]
+    title_max_chars = 16
+    title_max_size = 22
     for index, (name, title, sub) in enumerate(steps):
         x = left + index * (card_w + gap)
+        title_size = title_max_size if len(title) <= title_max_chars else max(14, round(title_max_size * title_max_chars / len(title)))
         parts.append(f'<rect x="{x}" y="{top}" width="{card_w}" height="{card_h}" rx="16" fill="{t["card"]}" stroke="{t["line"]}" stroke-width="1.5"/>')
         parts.append(icon(name, x + 26, top + 26, 48))
-        parts.append(f'<text x="{x + 26}" y="{top + 106}" fill="{t["ink"]}" font-family="{FONT}" font-size="22" font-weight="700">{title}</text>')
+        parts.append(f'<text x="{x + 26}" y="{top + 106}" fill="{t["ink"]}" font-family="{FONT}" font-size="{title_size}" font-weight="700">{title}</text>')
         parts.append(f'<text x="{x + 26}" y="{top + 132}" fill="{t["muted"]}" font-family="{FONT}" font-size="16">{sub}</text>')
         if index < len(steps) - 1:
             ax = x + card_w + 14
