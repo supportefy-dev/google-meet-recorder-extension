@@ -6,7 +6,14 @@ const pauseButtonIcon = document.querySelector('#pauseButtonIcon');
 const pausePro = document.querySelector('#pausePro');
 const proBadge = document.querySelector('#proBadge');
 const settingsButton = document.querySelector('#settingsButton');
+const videoModeInput = document.querySelector('#videoModeInput');
+const videoModePro = document.querySelector('#videoModePro');
+const freeLimitNote = document.querySelector('#freeLimitNote');
 const micButton = document.querySelector('#micButton');
+const micButtonLabel = document.querySelector('#micButtonLabel');
+const micButtonMeta = document.querySelector('#micButtonMeta');
+const micButtonIcon = document.querySelector('#micButtonIcon');
+const micPro = document.querySelector('#micPro');
 const micSelect = document.querySelector('#micSelect');
 const micPickerButton = document.querySelector('#micPickerButton');
 const micPickerLabel = document.querySelector('#micPickerLabel');
@@ -114,21 +121,28 @@ function render(state = {}) {
   pauseButtonLabel.textContent = state.paused ? 'Resume recording' : 'Pause recording';
   pauseButtonIcon.textContent = state.paused ? 'PLAY' : 'PAUSE';
   pausePro.hidden = licensedNow;
+  freeLimitNote.hidden = licensedNow;
+  videoModePro.hidden = licensedNow;
   const hearing = recording && state.outputLevel > .004;
   healthText.textContent = !recording ? 'Ready to capture' : hearing ? 'Capture signal is healthy' : 'Waiting for audible signal';
   document.body.classList.toggle('hearing', hearing);
   setMeter('meet', state.meetLevel, recording ? (state.meetLevel > .004 ? 'Live' : 'Quiet') : 'Standby');
   setMeter('mic', state.micMuted ? 0 : state.micLevel, recording ? (state.includeMic === false ? 'Unavailable' : state.micMuted ? 'Muted' : state.micLevel > .004 ? 'Live' : 'Quiet') : 'Standby');
   setMeter('output', state.outputLevel, recording ? (state.outputLevel > .004 ? 'Hearing ✓' : 'No sound') : 'Standby');
+  const micLockedOn = state.includeMic && !licensedNow;
   micButton.classList.toggle('live', recording && state.includeMic && !state.micMuted);
-  micButton.classList.toggle('muted', recording && state.includeMic && state.micMuted);
-  micButton.querySelector('b').textContent = !state.includeMic
+  micButton.classList.toggle('muted', recording && state.includeMic && state.micMuted && licensedNow);
+  micPro.hidden = !micLockedOn;
+  micButtonLabel.textContent = !state.includeMic
     ? 'Enable recording mic'
+    : micLockedOn ? 'Recording mic on'
     : state.micMuted ? 'Unmute recording mic' : 'Mute recording mic';
-  micButton.querySelector('small').textContent = !state.includeMic
+  micButtonMeta.textContent = !state.includeMic
     ? 'One-time permission · then stays here'
+    : micLockedOn ? 'Pro can mute or switch it mid-recording'
     : state.micMuted ? 'Meet audio continues recording' : 'Mixed into this recording';
-  micButton.querySelector('i').textContent = !state.includeMic ? 'ADD' : state.micMuted ? 'OFF' : 'ON';
+  micButtonIcon.hidden = micLockedOn;
+  micButtonIcon.textContent = !state.includeMic ? 'ADD' : state.micMuted ? 'OFF' : 'ON';
 }
 
 async function readState() {
@@ -193,6 +207,13 @@ document.addEventListener('keydown', event => {
   }
 });
 
+videoModeInput.addEventListener('click', event => {
+  if (licensedNow) return;
+  event.preventDefault();
+  document.querySelector('input[name="mode"][value="audio"]').checked = true;
+  openUpgrade();
+});
+
 startButton.addEventListener('click', async () => {
   startButton.disabled = true;
   status.textContent = 'Checking the active Meet tab…';
@@ -229,13 +250,15 @@ micButton.addEventListener('click', async () => {
       if (!saved.micPermissionGranted) {
         await openMicPermission();
       } else {
-        status.textContent = 'Enabling recording microphone…';
+        status.textContent = 'Enabling recording microphone, one moment';
         const result = await chrome.runtime.sendMessage({ type: 'ENABLE_MIC', deviceId: saved.selectedMicId });
         if (!result?.ok) {
           await chrome.storage.local.set({ micPermissionGranted: false });
           await openMicPermission();
         }
       }
+    } else if (!licensedNow) {
+      await openUpgrade();
     } else {
       const result = await chrome.runtime.sendMessage({ type: 'SET_MIC_MUTED', muted: !recorderState.micMuted });
       if (!result?.ok) throw new Error(result?.error || 'Could not change microphone state.');
@@ -252,9 +275,14 @@ micSelect.addEventListener('change', async () => {
   await chrome.storage.local.set({ selectedMicId: deviceId });
   const recorderState = (await chrome.storage.local.get('recorderState')).recorderState || {};
   if (!recorderState.recording || !recorderState.includeMic) return;
+  if (!licensedNow) {
+    await openUpgrade();
+    await loadMicrophones();
+    return;
+  }
   micSelect.disabled = true;
   micPickerButton.disabled = true;
-  status.textContent = 'Switching recording microphone…';
+  status.textContent = 'Switching recording microphone, one moment';
   try {
     const result = await chrome.runtime.sendMessage({ type: 'SWITCH_MIC', deviceId });
     if (!result?.ok) throw new Error(result?.error || 'Could not switch microphones.');

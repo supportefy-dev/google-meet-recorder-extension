@@ -133,9 +133,9 @@ body.mic-sheet-open .shell > :not(.mic-sheet) { pointer-events: none; }
 }
 .pause:hover { background: #d9d8d2; }
 .pause > span { flex: 1; text-align: left; }
-.pause .pro-tag {
+
+.pro-tag {
   padding: 3px 6px;
-  margin: 0 6px;
   border-radius: 5px;
   color: #fff;
   background: #357554;
@@ -145,6 +145,24 @@ body.mic-sheet-open .shell > :not(.mic-sheet) { pointer-events: none; }
   line-height: 1;
   font-style: normal;
   letter-spacing: .06em;
+  flex-shrink: 0;
+}
+.pause .pro-tag { margin: 0 6px; }
+.mic-control .pro-tag { margin-left: auto; }
+
+.modes label { justify-content: flex-start; gap: 8px; }
+.modes label > i:last-child { margin-left: auto; }
+.mode-tag { order: 1; }
+
+.free-note {
+  display: block;
+  margin-top: 2px;
+  color: #96835a;
+  font-family: inherit;
+  font-size: 7px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: .04em;
 }
 
 .footer-link {

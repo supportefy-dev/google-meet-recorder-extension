@@ -20,7 +20,7 @@
     </header>
 
     <section class="session" aria-label="Recording status">
-      <div class="clock"><small>Recording time</small><strong id="sessionTimer">00:00:00</strong></div>
+      <div class="clock"><small>Recording time</small><strong id="sessionTimer">00:00:00</strong><em id="freeLimitNote" class="free-note" hidden>Free: up to 40 min</em></div>
       <div class="health"><span id="healthDot"></span><p><small>Audio status</small><b id="healthText">Ready to capture</b></p></div>
     </section>
 
@@ -34,7 +34,7 @@
     <fieldset id="modes" class="modes">
       <legend>Recording type</legend>
       <label><input type="radio" name="mode" value="audio" checked><span><b>Audio</b><small>MP3 · small file</small></span><i></i></label>
-      <label><input type="radio" name="mode" value="video"><span><b>Video</b><small>WEBM file</small></span><i></i></label>
+      <label><input type="radio" name="mode" value="video" id="videoModeInput"><span><b>Video</b><small>WEBM or MP4</small></span><em id="videoModePro" class="pro-tag mode-tag" hidden>PRO</em><i></i></label>
     </fieldset>
 
     <section class="mic-deck">
@@ -45,7 +45,7 @@
         <button id="micPickerButton" class="picker-trigger" type="button" aria-haspopup="listbox" aria-expanded="false"><span><b id="micPickerLabel">Microphone not enabled</b><small id="micPickerMeta">Choose an input after enabling</small></span></button>
         <span class="chevron">⌄</span>
       </div>
-      <button id="micButton" class="mic-control" hidden><span><b>Enable recording mic</b><small>Independent from Google Meet</small></span><i>OFF</i></button>
+      <button id="micButton" class="mic-control" hidden><span><b id="micButtonLabel">Enable recording mic</b><small id="micButtonMeta">Independent from Google Meet</small></span><em id="micPro" class="pro-tag" hidden>PRO</em><i id="micButtonIcon">OFF</i></button>
     </section>
 
     <div class="actions">
