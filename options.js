@@ -49,7 +49,10 @@ function guardProControl(event, control) {
   jumpToProSection();
 }
 
+const gatedControls = new WeakSet();
 function gateRadio(input) {
+  if (gatedControls.has(input)) return;
+  gatedControls.add(input);
   input.addEventListener('click', event => guardProControl(event, input));
   input.addEventListener('keydown', event => {
     if ((event.key === ' ' || event.key === 'Enter') && !licensedNow) guardProControl(event, input);
@@ -57,7 +60,8 @@ function gateRadio(input) {
 }
 
 function applyLicenseGate() {
-  form.videoFormat.forEach(input => { if (input.value === 'mp4') gateRadio(input); });
+  // Video recording itself is a Pro feature now, not just the MP4 format choice.
+  form.videoFormat.forEach(input => gateRadio(input));
   form.audioQuality.forEach(input => { if (input.value !== 'mp3-64') gateRadio(input); });
   gateRadio(form.separateTracks);
   form.filenameTemplate.readOnly = !licensedNow;

@@ -8,21 +8,21 @@ Meet Recorder
 
 ## Short description
 
-Record Google Meet tab audio as MP3 or video as WEBM locally, with an optional independently controlled microphone.
+Record Google Meet tab audio as MP3 locally, free up to 40 minutes, with Pro adding video, unlimited length, and more.
 
 ## Detailed description
 
-Meet Recorder captures audio or video from the Google Meet tab you choose and saves the finished file to your computer through Chrome Downloads. You can record the meeting audio alone or add your microphone when you want your voice in the file.
+Meet Recorder captures audio from the Google Meet tab you choose and saves the finished file to your computer through Chrome Downloads. You can record the meeting audio alone or add your microphone when you want your voice in the file.
 
-- **Audio mode:** compact 64 kbps MP3.
-- **Video mode:** WEBM with the tab's video and mixed audio.
-- **Optional recording mic:** enable, mute, or switch the mic independently of Google Meet's own mute button.
+- **Audio mode, free:** compact 64 kbps MP3, up to 40 minutes per recording (saved automatically at the cap).
+- **Optional recording mic, free:** enable it independently of Google Meet's own mute button; it stays on for the recording.
 - **Live levels:** check Meet, microphone, and final recording signals while recording.
 - **Local processing:** no account, cloud upload, telemetry, or developer-operated recording server.
+- **Pro adds:** video (WEBM or MP4), unlimited recording length, muting or switching the recording mic mid-recording, higher audio quality and WAV, separate Meet-only/mic-only files, pause and resume, a custom file name template and Downloads subfolder, and a keyboard shortcut.
 
-Open a Google Meet tab, choose Audio or Video, select **Start recording**, and select **Stop and save** when finished. Chrome downloads the file automatically. Chrome 116 or newer is required.
+Open a Google Meet tab, select **Start recording**, and select **Stop and save** when finished. Chrome downloads the file automatically. Chrome 116 or newer is required.
 
-Meet Recorder Pro is an optional one-time $4.99 purchase (PayPal) that unlocks MP4 video, higher audio quality and WAV, separate Meet-only/mic-only files, pause and resume, a custom file name template and Downloads subfolder, and a keyboard shortcut. Every free feature stays free. Early bird: Pro is free forever for the first 100 users; email bash@supportefy.com to claim your key.
+Meet Recorder Pro is an optional one-time $4.99 purchase (PayPal). Early bird: Pro is free forever for the first 100 users; email bash@supportefy.com to claim your key.
 
 Only record meetings when participants have consented and when your workplace rules and local law allow it.
 

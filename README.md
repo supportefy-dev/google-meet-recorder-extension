@@ -5,8 +5,8 @@
 <h1 align="center">Meet Recorder</h1>
 
 <p align="center">
-  Record audio or video from your active Google Meet tab and save it directly to your computer.<br>
-  Audio downloads as MP3, video as WEBM. Add your microphone only when you choose to.
+  Record your active Google Meet tab and save it directly to your computer.<br>
+  Free: MP3 audio up to 40 minutes, mic optional. Pro: unlimited length, video, and more.
 </p>
 
 <p align="center">
@@ -44,27 +44,30 @@
 
 ## Free vs Pro
 
-Every 4.4.x feature stays free forever. Pro is a one-time $4.99 purchase, paid through PayPal, with the license key emailed to your PayPal address.
+Pro is a one-time $4.99 purchase, paid through PayPal, with the license key emailed to your PayPal address.
 
 **Early bird: Pro is free forever for the first 100 users.** Email bash@supportefy.com to claim your key.
 
 | Feature | Free | Pro |
 | --- | --- | --- |
-| MP3 64 kbps audio, WEBM video, recording mic, live meters | Yes | Yes |
-| MP4 video (falls back to WEBM when Chrome cannot encode it) | | Yes |
+| MP3 64 kbps audio, live meters | Yes | Yes |
+| Recording mic (can be enabled, stays on for the recording) | Yes | Yes |
+| Recording length | Up to 40 minutes (saves automatically at the cap) | Unlimited |
+| Video recording (WEBM or MP4) | | Yes |
 | MP3 128/192 kbps and lossless WAV audio | | Yes |
+| Muting the recording mic or switching devices mid-recording | | Yes |
 | Separate Meet-only and mic-only files alongside the main recording | | Yes |
 | Pause and resume, with the timer excluding paused time | | Yes |
 | Custom file name template and a Downloads subfolder | | Yes |
 | Keyboard shortcut to start or stop (default Alt+Shift+R) | | Yes |
 
-To activate: open the extension's **Settings**, buy Pro or claim an early-bird key by email, then paste the key and click **Activate**.
+A free recording that reaches 40 minutes is saved automatically, with a warning at 35 and 39 minutes. To activate Pro: open the extension's **Settings**, buy Pro or claim an early-bird key by email, then paste the key and click **Activate**.
 
 ## What it records
 
-- **Audio:** the sound you hear in the active Meet tab, saved as a compact 64 kbps MP3.
-- **Video:** the Meet tab's picture and mixed audio, saved as WEBM.
-- **Your microphone, optionally:** enable, mute, or switch a recording mic from the extension, independent of Meet's own mute button.
+- **Audio, free:** the sound you hear in the active Meet tab, saved as a compact 64 kbps MP3, up to 40 minutes.
+- **Video, Pro:** the Meet tab's picture and mixed audio, saved as WEBM or MP4.
+- **Your microphone, optionally:** enable it from the extension, independent of Meet's own mute button, free. Muting it or switching devices mid-recording needs Pro.
 
 Live meters show the Meet, microphone, and final recording levels while you record. Nothing is uploaded: recording and encoding happen inside Chrome.
 
@@ -201,6 +204,6 @@ MP3 encoding uses the bundled [`@breezystack/lamejs`](https://www.npmjs.com/pack
 
 ## Support development
 
-Meet Recorder is free to use. If it is useful to you, you can [make a one-time donation on PayPal](https://paypal.me/BashOM). Donations are optional and do not unlock features.
+Meet Recorder's free tier needs no purchase. If it is useful to you, you can [make a one-time donation on PayPal](https://paypal.me/BashOM), separately from a Pro purchase; donations do not unlock features.
 
 You can also help by [reporting a bug](https://github.com/supportefy-dev/meet-recorder/issues) or sharing the project.
