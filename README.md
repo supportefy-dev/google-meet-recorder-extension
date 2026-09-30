@@ -46,16 +46,16 @@ Live meters show the Meet, microphone, and final recording levels while you reco
 <table>
   <tr>
     <td align="center" width="33%">
-      <img src="assets/screenshots/recorder-ready.png" alt="Meet Recorder ready to start" width="260"><br>
-      <sub><strong>Ready to record:</strong> choose audio or video.</sub>
+      <img src="assets/media-pack/chrome-web-store/screenshot-01-recording-setup-1280x800.png" alt="Choose audio or video, starting from the active Google Meet tab" width="100%"><br>
+      <sub><strong>Choose audio or video</strong></sub>
     </td>
     <td align="center" width="33%">
-      <img src="assets/screenshots/recorder-active.png" alt="Meet Recorder during an active recording" width="260"><br>
-      <sub><strong>Live recording:</strong> watch levels and control the mic.</sub>
+      <img src="assets/media-pack/chrome-web-store/screenshot-02-live-recording-1280x800.png" alt="Live levels for Meet, mic, and the final recording" width="100%"><br>
+      <sub><strong>See levels while recording</strong></sub>
     </td>
     <td align="center" width="33%">
-      <img src="assets/screenshots/microphone-selector.png" alt="Recording microphone selection screen" width="260"><br>
-      <sub><strong>Microphone choice:</strong> switch inputs without interrupting Meet audio.</sub>
+      <img src="assets/media-pack/chrome-web-store/screenshot-03-microphone-selection-1280x800.png" alt="Choosing a recording microphone without losing Meet audio" width="100%"><br>
+      <sub><strong>Choose your microphone</strong></sub>
     </td>
   </tr>
 </table>
@@ -152,7 +152,7 @@ The project uses plain HTML, CSS, and JavaScript with no build step.
 | `offscreen.*` | Capture, mixing, metering, and encoding engine |
 | `service-worker.js` | Recorder lifecycle, state, and downloads |
 | `icons/`, `vendor/` | Extension icons; bundled MP3 encoder and its license |
-| `assets/` | README screenshots and the store and repository media pack |
+| `assets/media-pack/` | Store screenshots, promo tiles, README banner, social preview, and their editable SVGs |
 
 Before loading or submitting a change, validate the scripts and manifest:
 
