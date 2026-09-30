@@ -15,6 +15,12 @@
   <img alt="Local processing" src="https://img.shields.io/badge/processing-100%25%20local-2F7D5A?style=flat-square">
 </p>
 
+<p align="center">
+  <a href="https://paypal.me/BashOM"><img alt="Donate with PayPal" src="https://img.shields.io/badge/Donate-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white"></a>
+</p>
+
+<p align="center"><sub>Meet Recorder is free and has no paid features. Donations keep it maintained.</sub></p>
+
 ## Highlights
 
 - **Meet audio recording** — captures the audio you hear from the active Google Meet tab.
@@ -59,7 +65,7 @@
 
 ### From a downloaded ZIP
 
-1. Download the extension ZIP from the [latest GitHub Release](https://github.com/supportefy-dev/google-meet-recorder-extension/releases/latest), then extract it.
+1. Download the extension ZIP from the [latest GitHub Release](https://github.com/supportefy-dev/meet-recorder/releases/latest), then extract it.
 2. Open `chrome://extensions` in Chrome.
 3. Enable **Developer mode**.
 4. Click **Load unpacked**.
@@ -69,7 +75,7 @@
 ### From source
 
 ```powershell
-git clone https://github.com/supportefy-dev/google-meet-recorder-extension.git
+git clone https://github.com/supportefy-dev/meet-recorder.git
 ```
 
 Then use **Load unpacked** and select the cloned repository folder.
@@ -176,7 +182,13 @@ MP3 encoding uses the locally bundled [`@breezystack/lamejs`](https://www.npmjs.
 
 ## Support
 
-Meet Recorder is free. If it saves you time, you can support development with a donation on [PayPal](https://paypal.me/BashOM).
+Meet Recorder is free, open source, and has no ads, accounts, or paid features. If it saves you time in your meetings, a donation helps cover development and keeps the extension maintained for new Chrome and Google Meet versions.
+
+<a href="https://paypal.me/BashOM"><img alt="Donate with PayPal" src="https://img.shields.io/badge/Donate-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white"></a>
+
+- **Donate:** [paypal.me/BashOM](https://paypal.me/BashOM), any amount, one time.
+- **From the extension:** the **Donate** link at the bottom of the popup opens the same page.
+- **Other ways to help:** star the repository, report bugs, or suggest features in [Issues](https://github.com/supportefy-dev/meet-recorder/issues).
 
 ## Contributing
 

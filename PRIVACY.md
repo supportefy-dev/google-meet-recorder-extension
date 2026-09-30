@@ -28,4 +28,4 @@ Always obtain consent from meeting participants and follow the recording laws an
 
 ## Contact
 
-Questions about this policy can be raised through the repository's issue tracker: https://github.com/supportefy-dev/google-meet-recorder-extension/issues
+Questions about this policy can be raised through the repository's issue tracker: https://github.com/supportefy-dev/meet-recorder/issues

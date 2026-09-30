@@ -1,6 +1,6 @@
 # Generated release packages
-google-meet-recorder-extension-*/
-google-meet-recorder-extension-*.zip
+meet-recorder-*/
+meet-recorder-*.zip
 
 # OS and editor files
 .DS_Store
