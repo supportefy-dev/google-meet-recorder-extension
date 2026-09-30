@@ -20,11 +20,11 @@
 
       <fieldset class="field-group">
         <legend>Video format <em class="pro-tag">PRO</em></legend>
-        <label class="option-row"><input type="radio" name="videoFormat" value="webm" checked><span><b>WEBM</b><small>Works on every Chrome build</small></span><em class="pro-tag">PRO</em></label>
-        <label class="option-row"><input type="radio" name="videoFormat" value="mp4"><span><b>MP4</b><small id="mp4Note">Falls back to WEBM if unsupported</small></span><em class="pro-tag">PRO</em></label>
+        <label class="option-row"><input type="radio" name="videoFormat" value="webm" checked><span><b>WEBM</b><small>Works on every Chrome build</small></span></label>
+        <label class="option-row"><input type="radio" name="videoFormat" value="mp4"><span><b>MP4</b><small id="mp4Note">Falls back to WEBM if unsupported</small></span></label>
       </fieldset>
 
-      <p class="hint">Free recordings are audio only, up to <span id="freeTierMinutes">40</span> minutes. The recording mic can be enabled, but muting it and switching devices mid-recording need Pro.</p>
+      <p class="hint tier-hint">Free recordings are audio only, up to <span id="freeTierMinutes">40</span> minutes. The recording mic can be enabled, but muting it and switching devices mid-recording need Pro.</p>
 
       <fieldset class="field-group">
         <legend>Audio quality</legend>
@@ -50,8 +50,24 @@
       </div>
     </section>
 
-    <section class="card" id="proSection" aria-labelledby="proHeading">
-      <div class="section-title"><h2 id="proHeading">Meet Recorder Pro</h2><span id="proPrice">$4.99 one time</span></div>
+    <section class="card pro-card" id="proSection" aria-labelledby="proHeading">
+      <div class="pro-head">
+        <div>
+          <span class="pro-pill">PRO</span>
+          <h2 id="proHeading">Meet Recorder Pro</h2>
+          <p>One payment. Every Pro feature, for good.</p>
+        </div>
+        <p class="pro-price"><strong id="proPrice">$4.99</strong><small>one time</small></p>
+      </div>
+
+      <ul class="pro-benefits">
+        <li>Unlimited recording length</li>
+        <li>Video as WEBM or MP4</li>
+        <li>MP3 192 kbps and lossless WAV</li>
+        <li>Mute or switch the mic mid-recording</li>
+        <li>Pause and resume, separate tracks</li>
+        <li>Custom file names and a keyboard shortcut</li>
+      </ul>
 
       <div id="proLoading" class="status-line" role="status">Checking your license...</div>
 
@@ -60,7 +76,6 @@
           <b>Early bird:</b> the first <span id="earlyBirdSeats">100</span> users get Pro free, forever.
           <a id="earlyBirdLink" href="#">Email us to claim your key</a>.
         </div>
-        <p>Unlock MP4 video, higher audio quality, WAV, separate tracks, pause/resume, custom file names and the keyboard shortcut.</p>
         <a id="buyButton" class="primary buy-button" href="#" target="_blank" rel="noopener noreferrer">Buy Meet Recorder Pro &middot; <span id="buyPrice">$4.99</span></a>
         <p class="hint">Your license key is emailed to your PayPal address after payment.</p>
         <form id="activateForm" class="activate-form">

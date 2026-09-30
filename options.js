@@ -136,11 +136,12 @@ function renderEarlyBird() {
 
 async function init() {
   freeTierMinutes.textContent = String(config.freeLimits.maxMinutes);
-  proPrice.textContent = `${currency(config.price)} one time`;
+  proPrice.textContent = currency(config.price);
   buyPrice.textContent = currency(config.price);
   buyButton.href = config.paypalUrl;
   donateLink.href = config.donateUrl;
   renderEarlyBird();
+  applyLicenseGate();
 
   renderForm(await settingsLib.load());
   renderLicenseState(await license.current());

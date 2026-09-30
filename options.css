@@ -1,5 +1,5 @@
 body { width: auto; min-width: 0; max-width: none; height: auto; overflow: visible; background: var(--paper); }
-.page { max-width: 560px; margin: 0 auto; padding: 28px 20px 60px; }
+.page { max-width: 560px; margin: 0 auto; padding: 28px 20px 96px; }
 .page .topbar { margin-bottom: 18px; }
 .page .identity h1 { font-size: 19px; }
 .page .identity p { font-size: 10px; }
@@ -7,6 +7,7 @@ body { width: auto; min-width: 0; max-width: none; height: auto; overflow: visib
 .card { margin-top: 16px; padding: 18px 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
 .card .section-title { margin-bottom: 12px; }
 .card .section-title h2 { font-size: 13px; }
+.card .section-title > span { font-size: 9.5px; }
 
 .field-group { margin: 0 0 14px; padding: 0; border: 0; }
 .field-group legend { margin: 0 0 6px; padding: 0; color: var(--muted); font-size: 9px; letter-spacing: .04em; text-transform: uppercase; }
@@ -20,7 +21,8 @@ body { width: auto; min-width: 0; max-width: none; height: auto; overflow: visib
 .option-row small { color: var(--muted); font-size: 8.5px; }
 .toggle-row { margin-top: 2px; }
 
-.pro-tag { margin-left: auto; padding: 3px 6px; border-radius: 5px; color: #fff; background: #357554; font: 700 7.5px/1 inherit; letter-spacing: .06em; flex-shrink: 0; }
+.pro-tag { margin-left: auto; padding: 3px 6px; border-radius: 5px; color: #fff; background: #357554; font-family: inherit; font-size: 7.5px; font-style: normal; font-weight: 700; line-height: 1; letter-spacing: .06em; flex-shrink: 0; }
+legend .pro-tag, .field label .pro-tag { margin-left: 6px; vertical-align: 1px; }
 
 .field { margin-top: 4px; margin-bottom: 14px; }
 .field label { display: block; margin-bottom: 5px; font-size: 10px; font-weight: 700; }
@@ -28,6 +30,20 @@ body { width: auto; min-width: 0; max-width: none; height: auto; overflow: visib
 .field input[type="text"]:disabled { opacity: .55; cursor: not-allowed; background: var(--soft); }
 .field input[type="text"]:focus-visible { outline: 2px solid #68776d; outline-offset: 1px; }
 .hint { margin: 6px 0 0; color: var(--muted); font-size: 8.5px; }
+.tier-hint { margin: -4px 0 18px; padding: 9px 11px; border-radius: 8px; background: var(--soft); font-size: 9px; line-height: 1.5; }
+
+.pro-card { padding: 22px 20px 22px; border: 1.5px solid #9cc3aa; background: linear-gradient(180deg, #eef6f0 0, var(--surface) 140px); }
+.pro-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.pro-head h2 { margin: 8px 0 3px; font-size: 18px; letter-spacing: -.02em; }
+.pro-head p { margin: 0; color: var(--muted); font-size: 10px; }
+.pro-pill { display: inline-block; padding: 4px 8px; border-radius: 999px; color: #fff; background: #357554; font-size: 8px; font-weight: 700; letter-spacing: .1em; }
+.pro-price { display: flex; flex-direction: column; align-items: flex-end; margin: 0; }
+.pro-price strong { color: var(--ink); font-size: 26px; line-height: 1; letter-spacing: -.02em; }
+.pro-price small { margin-top: 4px; color: var(--muted); font-size: 9px; }
+.pro-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 14px; margin: 0 0 16px; padding: 0; list-style: none; }
+.pro-benefits li { position: relative; padding-left: 18px; font-size: 10px; line-height: 1.4; }
+.pro-benefits li::before { content: ""; position: absolute; left: 0; top: 2px; width: 11px; height: 11px; border-radius: 50%; background: #357554; }
+.pro-benefits li::after { content: ""; position: absolute; left: 3.5px; top: 4.5px; width: 3px; height: 5px; border: solid #fff; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
 .hint code { padding: 1px 4px; border-radius: 4px; background: var(--soft); font: 700 8px/1 "SF Mono","Cascadia Mono",monospace; }
 .preview { margin: 6px 0 0; padding: 7px 9px; border-radius: 6px; background: var(--soft); color: #4a4b46; font: 500 8.5px/1.4 "SF Mono","Cascadia Mono",monospace; word-break: break-all; }
 
@@ -54,4 +70,5 @@ body { width: auto; min-width: 0; max-width: none; height: auto; overflow: visib
 
 @media (max-width: 420px) {
   .activate-form { grid-template-columns: 1fr; }
+  .pro-benefits { grid-template-columns: 1fr; }
 }
