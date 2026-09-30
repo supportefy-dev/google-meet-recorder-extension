@@ -27,11 +27,20 @@
 ## Quick start
 
 1. Download `meet-recorder-4.4.7.zip` from the [latest release](https://github.com/supportefy-dev/meet-recorder/releases/latest) and extract it.
-2. Open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and select the extracted folder.
+2. Open `chrome://extensions` (in Edge, `edge://extensions`), turn on **Developer mode**, click **Load unpacked**, and select the extracted folder.
 3. Open a Google Meet tab, click the extension icon, choose **Audio** or **Video**, and click **Start recording**.
 4. Click **Stop and save** when you are done. Chrome downloads the file automatically.
 
-Requires Google Chrome 116 or newer.
+## Browser support
+
+| Browser | Status | Notes |
+| --- | --- | --- |
+| Google Chrome 116+ | Supported | Tested on Chrome 153. |
+| Microsoft Edge 116+ | Supported | Tested on Edge 154. Install from `edge://extensions` with **Developer mode** on. |
+| Brave, Opera, Vivaldi | Expected to work, not tested | Built on the same Chromium engine; they need the `tabCapture` and `offscreen` extension APIs. Please [report](https://github.com/supportefy-dev/meet-recorder/issues) what you find. |
+| Firefox | Not supported | Firefox has no `tabCapture` or `offscreen` extension API and cannot capture tab audio, so a Meet recording is not possible. |
+| Safari | Not supported | Safari extensions have no tab-capture API and Safari cannot capture tab audio. |
+| Mobile browsers | Not supported | Chrome on Android and iOS has no extension support, and the extension is built for desktop tab capture. |
 
 ## What it records
 
