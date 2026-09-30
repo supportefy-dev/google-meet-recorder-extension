@@ -177,7 +177,7 @@ After changing capture behavior, test Audio and Video on a real Meet tab, includ
 
 ## License
 
-Copyright (c) 2026 Supportefy. All rights reserved. The source is public so you can see exactly what the extension does; it is not licensed for reuse or redistribution.
+Copyright (c) 2026 Supportefy LLC. All rights reserved. The source is public so you can see exactly what the extension does; it is not licensed for reuse or redistribution.
 
 MP3 encoding uses the bundled [`@breezystack/lamejs`](https://www.npmjs.com/package/@breezystack/lamejs) encoder under its own LGPL-3.0 license, included at [`vendor/lamejs.LICENSE`](vendor/lamejs.LICENSE).
 
