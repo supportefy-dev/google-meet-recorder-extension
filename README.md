@@ -1,28 +1,87 @@
 <p align="center">
-  <img src="assets/media-pack/repository/readme-banner-1280x480.png" alt="Meet Recorder: record locally and keep the file" width="100%">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner-dark-1280x480.png">
+    <img src="assets/media-pack/repository/readme-banner-1280x480.png" alt="Meet Recorder: record locally and keep the file" width="100%">
+  </picture>
 </p>
 
 <h1 align="center">Meet Recorder</h1>
 
 <p align="center">
-  Record audio or video from your active Google Meet tab and save it directly to your computer.<br>
+  Record audio or video from your active Google Meet tab and save it straight to your computer.<br>
   Audio downloads as MP3, video as WEBM. Add your microphone only when you choose to.
 </p>
 
 <p align="center">
-  <img alt="Version 4.4.7" src="https://img.shields.io/badge/version-4.4.7-FFC745?style=flat-square&labelColor=202724">
-  <img alt="Chrome 116+" src="https://img.shields.io/badge/Chrome-116%2B-202724?style=flat-square&logo=googlechrome&logoColor=white">
-  <img alt="Local processing" src="https://img.shields.io/badge/processing-100%25%20local-2F7D5A?style=flat-square">
+  <a href="https://github.com/supportefy-dev/meet-recorder/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/supportefy-dev/meet-recorder?style=flat-square&labelColor=202724&color=FFC745&label=release"></a>
+  <a href="https://github.com/supportefy-dev/meet-recorder/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/supportefy-dev/meet-recorder/total?style=flat-square&labelColor=202724&color=2F7D5A&label=downloads"></a>
+  <img alt="Chrome and Edge 116+" src="https://img.shields.io/badge/Chrome%20%7C%20Edge-116%2B-202724?style=flat-square&logo=googlechrome&logoColor=white">
+  <img alt="Processing is 100% local" src="https://img.shields.io/badge/processing-100%25%20local-2F7D5A?style=flat-square">
+  <a href="LICENSE"><img alt="License: all rights reserved" src="https://img.shields.io/badge/license-all%20rights%20reserved-202724?style=flat-square"></a>
   <a href="https://paypal.me/BashOM"><img alt="Donate with PayPal" src="https://img.shields.io/badge/donate-PayPal-0070BA?style=flat-square&logo=paypal&logoColor=white"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/supportefy-dev/meet-recorder/releases/latest"><strong>Download the current release</strong></a>
+  <a href="https://github.com/supportefy-dev/meet-recorder/releases/latest"><strong>Download</strong></a>
+  &nbsp;&middot;&nbsp;
+  <a href="#quick-start">Quick start</a>
   &nbsp;&middot;&nbsp;
   <a href="PRIVACY.md">Privacy policy</a>
   &nbsp;&middot;&nbsp;
+  <a href="CHANGELOG.md">Changelog</a>
+  &nbsp;&middot;&nbsp;
   <a href="https://github.com/supportefy-dev/meet-recorder/issues">Report an issue</a>
 </p>
+
+<p align="center">
+  <img src="assets/readme/popup-demo.gif" alt="The Meet Recorder popup recording Meet audio, adding the microphone, then saving the file" width="380">
+</p>
+
+## Features
+
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <img src="assets/readme/icons/audio.svg" alt="" width="40" height="40"><br>
+      <strong>MP3 audio</strong><br>
+      <sub>The sound of the active Meet tab, encoded locally as a compact 64 kbps MP3.</sub>
+    </td>
+    <td width="33%" valign="top">
+      <img src="assets/readme/icons/video.svg" alt="" width="40" height="40"><br>
+      <strong>WEBM video</strong><br>
+      <sub>The Meet tab's picture with the mixed meeting and microphone audio.</sub>
+    </td>
+    <td width="33%" valign="top">
+      <img src="assets/readme/icons/mic.svg" alt="" width="40" height="40"><br>
+      <strong>Your mic, your call</strong><br>
+      <sub>Add, mute, or switch a recording mic without touching Meet's own mute button.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
+      <img src="assets/readme/icons/levels.svg" alt="" width="40" height="40"><br>
+      <strong>Live levels</strong><br>
+      <sub>Meters for Meet, your mic, and the final file, so you know the recording hears sound.</sub>
+    </td>
+    <td width="33%" valign="top">
+      <img src="assets/readme/icons/privacy.svg" alt="" width="40" height="40"><br>
+      <strong>Private by design</strong><br>
+      <sub>No account, no server, no tracking. Recordings never leave your computer.</sub>
+    </td>
+    <td width="33%" valign="top">
+      <img src="assets/readme/icons/download.svg" alt="" width="40" height="40"><br>
+      <strong>Straight to Downloads</strong><br>
+      <sub>Click Stop and save; Chrome downloads the finished file automatically.</sub>
+    </td>
+  </tr>
+</table>
+
+## How it works
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/how-it-works-dark.png">
+  <img src="assets/readme/how-it-works-light.png" alt="The Google Meet tab is captured by Meet Recorder inside Chrome and saved to your Downloads folder; everything stays on your computer" width="100%">
+</picture>
 
 ## Quick start
 
@@ -33,24 +92,33 @@
 
 ## Browser support
 
-| Browser | Status | Notes |
-| --- | --- | --- |
-| <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/chrome/chrome_48x48.png" alt="" width="18" height="18"> Google Chrome 116+ | Supported | Tested on Chrome 153. |
-| <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/edge/edge_48x48.png" alt="" width="18" height="18"> Microsoft Edge 116+ | Supported | Tested on Edge 154. Install from `edge://extensions` with **Developer mode** on. |
-| <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/brave/brave_48x48.png" alt="" width="18" height="18"> <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/opera/opera_48x48.png" alt="" width="18" height="18"> <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/vivaldi/vivaldi_48x48.png" alt="" width="18" height="18"> Brave, Opera, Vivaldi | Expected to work, not tested | Built on the same Chromium engine; they need the `tabCapture` and `offscreen` extension APIs. Please [report](https://github.com/supportefy-dev/meet-recorder/issues) what you find. |
-| <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/firefox/firefox_48x48.png" alt="" width="18" height="18"> Firefox | Not supported | Firefox has no `tabCapture` or `offscreen` extension API and cannot capture tab audio, so a Meet recording is not possible. |
-| <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/safari/safari_48x48.png" alt="" width="18" height="18"> Safari | Not supported | Safari extensions have no tab-capture API and Safari cannot capture tab audio. |
-| Mobile browsers | Not supported | Chrome on Android and iOS has no extension support, and the extension is built for desktop tab capture. |
+<table>
+  <tr>
+    <td align="center" width="14%"><img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/chrome/chrome_48x48.png" alt="" width="40" height="40"><br><strong>Chrome</strong></td>
+    <td align="center" width="14%"><img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/edge/edge_48x48.png" alt="" width="40" height="40"><br><strong>Edge</strong></td>
+    <td align="center" width="14%"><img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/brave/brave_48x48.png" alt="" width="40" height="40"><br><strong>Brave</strong></td>
+    <td align="center" width="14%"><img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/opera/opera_48x48.png" alt="" width="40" height="40"><br><strong>Opera</strong></td>
+    <td align="center" width="14%"><img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/vivaldi/vivaldi_48x48.png" alt="" width="40" height="40"><br><strong>Vivaldi</strong></td>
+    <td align="center" width="14%"><img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/firefox/firefox_48x48.png" alt="" width="40" height="40"><br><strong>Firefox</strong></td>
+    <td align="center" width="14%"><img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@v47.0.0/src/safari/safari_48x48.png" alt="" width="40" height="40"><br><strong>Safari</strong></td>
+  </tr>
+  <tr>
+    <td align="center">Supported<br><sub>116+</sub></td>
+    <td align="center">Supported<br><sub>116+</sub></td>
+    <td align="center">Expected<br><sub>not tested</sub></td>
+    <td align="center">Expected<br><sub>not tested</sub></td>
+    <td align="center">Expected<br><sub>not tested</sub></td>
+    <td align="center">Not supported</td>
+    <td align="center">Not supported</td>
+  </tr>
+</table>
 
-## What it records
+- **Chrome and Edge** were tested with the extension loaded (Chrome 153, Edge 154). In Edge, install from `edge://extensions` with **Developer mode** on.
+- **Brave, Opera, and Vivaldi** use the same Chromium engine and should work; they need the `tabCapture` and `offscreen` extension APIs. Please [report](https://github.com/supportefy-dev/meet-recorder/issues) what you find.
+- **Firefox and Safari** cannot record a Meet tab: they have no `tabCapture` extension API and cannot capture tab audio.
+- **Mobile browsers** are not supported. Chrome on Android and iOS has no extension support.
 
-- **Audio:** the sound you hear in the active Meet tab, saved as a compact 64 kbps MP3.
-- **Video:** the Meet tab's picture and mixed audio, saved as WEBM.
-- **Your microphone, optionally:** enable, mute, or switch a recording mic from the extension, independent of Meet's own mute button.
-
-Live meters show the Meet, microphone, and final recording levels while you record. Nothing is uploaded: recording and encoding happen inside Chrome.
-
-## See it in action
+## Screenshots
 
 <table>
   <tr>
@@ -162,6 +230,7 @@ The project uses plain HTML, CSS, and JavaScript with no build step.
 | `service-worker.js` | Recorder lifecycle, state, and downloads |
 | `icons/`, `vendor/` | Extension icons; bundled MP3 encoder and its license |
 | `assets/media-pack/` | Store screenshots, promo tiles, README banner, social preview, and their editable SVGs |
+| `assets/readme/`, `tools/readme-media/` | README artwork (icons, dark banner, diagram, demo GIF) and the scripts that rebuild it |
 
 Before loading or submitting a change, validate the scripts and manifest:
 
