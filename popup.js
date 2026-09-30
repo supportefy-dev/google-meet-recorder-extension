@@ -1,5 +1,11 @@
 const startButton = document.querySelector('#startButton');
 const stopButton = document.querySelector('#stopButton');
+const pauseButton = document.querySelector('#pauseButton');
+const pauseButtonLabel = document.querySelector('#pauseButtonLabel');
+const pauseButtonIcon = document.querySelector('#pauseButtonIcon');
+const pausePro = document.querySelector('#pausePro');
+const proBadge = document.querySelector('#proBadge');
+const settingsButton = document.querySelector('#settingsButton');
 const micButton = document.querySelector('#micButton');
 const micSelect = document.querySelector('#micSelect');
 const micPickerButton = document.querySelector('#micPickerButton');
@@ -14,6 +20,7 @@ const sessionTimer = document.querySelector('#sessionTimer');
 const healthText = document.querySelector('#healthText');
 const stateLabel = document.querySelector('#stateLabel');
 let latestState = {};
+let licensedNow = false;
 
 function friendlyMicName(label, fallback = 'Microphone') {
   return (label || fallback)
@@ -70,15 +77,19 @@ function renderMicMenu(devices, selectedId) {
   }
 }
 
-function formatDuration(startedAt) {
+function formatDuration(startedAt, pausedAccumMs = 0) {
   if (!startedAt) return '00:00:00';
-  const seconds = Math.max(0, Math.floor((Date.now() - startedAt) / 1000));
+  const seconds = Math.max(0, Math.floor((Date.now() - startedAt - pausedAccumMs) / 1000));
   return [Math.floor(seconds / 3600), Math.floor(seconds / 60) % 60, seconds % 60]
     .map(value => String(value).padStart(2, '0')).join(':');
 }
 
+// While paused the offscreen clock is not advancing, so the popup timer holds still too
+// instead of drifting ahead using its own Date.now().
 function updateTimer() {
-  sessionTimer.textContent = latestState.recording ? formatDuration(latestState.startedAt) : '00:00:00';
+  if (!latestState.recording) { sessionTimer.textContent = '00:00:00'; return; }
+  if (latestState.paused) return;
+  sessionTimer.textContent = formatDuration(latestState.startedAt, latestState.pausedAccumMs);
 }
 
 function setMeter(id, level, text) {
@@ -97,10 +108,14 @@ function render(state = {}) {
   document.body.classList.toggle('recording', recording);
   startButton.hidden = recording || state.phase === 'starting' || state.phase === 'saving';
   stopButton.hidden = !recording;
+  pauseButton.hidden = !recording || state.phase === 'saving';
   micButton.hidden = !recording;
   modes.disabled = recording || state.phase === 'starting' || state.phase === 'saving';
   status.textContent = state.message || 'Ready';
-  stateLabel.textContent = recording ? 'RECORDING' : state.phase === 'saving' ? 'SAVING' : state.phase === 'starting' ? 'ARMING' : 'READY';
+  stateLabel.textContent = state.paused ? 'PAUSED' : recording ? 'RECORDING' : state.phase === 'saving' ? 'SAVING' : state.phase === 'starting' ? 'ARMING' : 'READY';
+  pauseButtonLabel.textContent = state.paused ? 'Resume recording' : 'Pause recording';
+  pauseButtonIcon.textContent = state.paused ? 'PLAY' : 'PAUSE';
+  pausePro.hidden = licensedNow;
   const hearing = recording && state.outputLevel > .004;
   healthText.textContent = !recording ? 'Ready to capture' : hearing ? 'Capture signal is healthy' : 'Waiting for audible signal';
   document.body.classList.toggle('hearing', hearing);
@@ -258,13 +273,46 @@ navigator.mediaDevices.addEventListener('devicechange', loadMicrophones);
 
 stopButton.addEventListener('click', async () => {
   stopButton.disabled = true;
-  status.textContent = 'Finishing recording…';
+  status.textContent = 'Finishing recording, almost done';
   await chrome.runtime.sendMessage({ type: 'STOP_RECORDING' });
 });
+
+async function openUpgrade() {
+  await chrome.tabs.create({ url: `${chrome.runtime.getURL('options.html')}#pro` });
+}
+
+pauseButton.addEventListener('click', async () => {
+  if (!licensedNow) {
+    await openUpgrade();
+    return;
+  }
+  pauseButton.disabled = true;
+  try {
+    const type = latestState.paused ? 'RESUME_RECORDING' : 'PAUSE_RECORDING';
+    const result = await chrome.runtime.sendMessage({ type });
+    if (!result?.ok) throw new Error(result?.error || 'Could not change the pause state.');
+  } catch (error) {
+    status.textContent = error.message;
+  } finally {
+    pauseButton.disabled = false;
+  }
+});
+
+settingsButton.addEventListener('click', () => chrome.runtime.openOptionsPage());
+
+async function loadLicense() {
+  const licenseStatus = await MeetRecorderLicense.current();
+  licensedNow = Boolean(licenseStatus.pro);
+  proBadge.hidden = !licensedNow;
+  render(latestState);
+}
+
+MeetRecorderLicense.onLicenseChange(() => loadLicense());
 
 chrome.storage.onChanged.addListener(changes => {
   if (changes.recorderState) render(changes.recorderState.newValue);
 });
 readState();
 loadMicrophones();
+loadLicense();
 setInterval(updateTimer, 250);

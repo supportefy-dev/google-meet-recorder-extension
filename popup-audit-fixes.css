@@ -112,3 +112,43 @@ body.mic-sheet-open .shell > :not(.mic-sheet) { pointer-events: none; }
   from { opacity: 0; transform: translateX(12px); }
   to { opacity: 1; transform: translateX(0); }
 }
+
+.state-group { display: flex; align-items: center; gap: 6px; }
+.pro-badge {
+  padding: 3px 6px;
+  border-radius: 999px;
+  color: #fff;
+  background: #357554;
+  font: 700 7px/1 inherit;
+  font-style: normal;
+  letter-spacing: .07em;
+}
+
+.pause {
+  color: #454641;
+  background: #e5e4df;
+}
+.pause:hover { background: #d9d8d2; }
+.pause .pro-tag {
+  padding: 3px 6px;
+  margin: 0 6px;
+  border-radius: 5px;
+  color: #fff;
+  background: #357554;
+  font: 700 7px/1 inherit;
+  font-style: normal;
+  letter-spacing: .06em;
+}
+
+.footer-link {
+  padding: 3px 5px;
+  border: 0;
+  border-radius: 4px;
+  color: #5f6f65;
+  background: transparent;
+  font: 700 6.5px/1 inherit;
+  cursor: pointer;
+  transition: color .2s var(--ease), background .2s var(--ease);
+}
+.footer-link:hover { color: #285c40; background: #e5ebe7; }
+.footer-link:focus-visible { outline: 1px solid #68776d; outline-offset: 1px; }

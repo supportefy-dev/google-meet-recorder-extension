@@ -13,7 +13,10 @@
     <header class="topbar">
       <span class="brand" aria-hidden="true"><i></i></span>
       <div class="identity"><h1>Meet Recorder</h1><p>Records locally on this computer</p></div>
-      <span class="state"><i id="stateDot"></i><b id="stateLabel">READY</b></span>
+      <div class="state-group">
+        <em id="proBadge" class="pro-badge" hidden>PRO</em>
+        <span class="state"><i id="stateDot"></i><b id="stateLabel">READY</b></span>
+      </div>
     </header>
 
     <section class="session" aria-label="Recording status">
@@ -48,12 +51,13 @@
     <div class="actions">
       <button id="startButton" class="primary"><span><b>Start recording</b><small>Capture the active Meet tab</small></span><i>REC</i></button>
       <button id="stopButton" class="stop" hidden><span><b>Stop and save</b><small>Download the recording</small></span><i>STOP</i></button>
+      <button id="pauseButton" class="pause" hidden><span><b id="pauseButtonLabel">Pause recording</b><small>Timer stops while paused</small></span><em id="pausePro" class="pro-tag" hidden>PRO</em><i id="pauseButtonIcon">PAUSE</i></button>
     </div>
     <p id="status" class="status" role="status">Open a Google Meet tab to begin.</p>
     <footer>
       <span>Private by design <i></i> No upload or account required</span>
-      <span><a href="https://paypal.me/BashOM" target="_blank" rel="noopener noreferrer" aria-label="Support Meet Recorder with a donation on PayPal">Donate ↗</a>
-      <a href="https://github.com/supportefy-dev/meet-recorder" target="_blank" rel="noopener noreferrer" aria-label="Open the Meet Recorder repository on GitHub">GitHub ↗</a></span>
+      <span><button type="button" id="settingsButton" class="footer-link" aria-label="Open Meet Recorder settings">Settings</button>
+      <a href="https://github.com/supportefy-dev/meet-recorder" target="_blank" rel="noopener noreferrer" aria-label="Open the Meet Recorder repository on GitHub">GitHub &#8599;</a></span>
     </footer>
 
     <section id="micSheet" class="mic-sheet" aria-labelledby="micSheetTitle" hidden>
@@ -63,6 +67,8 @@
       <p class="sheet-note">You can switch inputs while recording without interrupting Meet audio.</p>
     </section>
   </main>
+  <script src="lib/config.js"></script>
+  <script src="lib/license.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>
