@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="icons/icon-32.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Meet Recorder Settings</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <span class="brand" aria-hidden="true"><i></i></span>
+      <div class="identity"><h1>Meet Recorder</h1><p>Recording settings</p></div>
+    </header>
+
+    <section class="card" aria-labelledby="recordingHeading">
+      <div class="section-title"><h2 id="recordingHeading">Recording</h2><span>Applies to the next recording</span></div>
+
+      <fieldset class="field-group">
+        <legend>Video format</legend>
+        <label class="option-row"><input type="radio" name="videoFormat" value="webm" checked><span><b>WEBM</b><small>Works on every Chrome build</small></span></label>
+        <label class="option-row"><input type="radio" name="videoFormat" value="mp4"><span><b>MP4</b><small id="mp4Note">Falls back to WEBM if unsupported</small></span><em class="pro-tag">PRO</em></label>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Audio quality</legend>
+        <label class="option-row"><input type="radio" name="audioQuality" value="mp3-64" checked><span><b>MP3 64 kbps</b><small>Small file, default</small></span></label>
+        <label class="option-row"><input type="radio" name="audioQuality" value="mp3-128"><span><b>MP3 128 kbps</b><small>Better quality</small></span><em class="pro-tag">PRO</em></label>
+        <label class="option-row"><input type="radio" name="audioQuality" value="mp3-192"><span><b>MP3 192 kbps</b><small>High quality</small></span><em class="pro-tag">PRO</em></label>
+        <label class="option-row"><input type="radio" name="audioQuality" value="wav"><span><b>WAV 16-bit</b><small>Lossless, about 690MB/hour stereo</small></span><em class="pro-tag">PRO</em></label>
+      </fieldset>
+
+      <label class="option-row toggle-row"><input type="checkbox" id="separateTracks"><span><b>Separate tracks</b><small>Extra Meet-only and mic-only files next to the main one</small></span><em class="pro-tag">PRO</em></label>
+
+      <div class="field">
+        <label for="filenameTemplate">File name template <em class="pro-tag">PRO</em></label>
+        <input type="text" id="filenameTemplate" placeholder="google-meet-{mode}-{date}T{time}" aria-describedby="filenamePreview">
+        <p class="hint">Tokens: <code>{date}</code> <code>{time}</code> <code>{mode}</code> <code>{title}</code></p>
+        <p class="preview" id="filenamePreview" aria-live="polite">Preview: google-meet-audio-2026-09-30T08-15-23-000Z.mp3</p>
+      </div>
+
+      <div class="field">
+        <label for="subfolder">Downloads subfolder <em class="pro-tag">PRO</em></label>
+        <input type="text" id="subfolder" placeholder="Meet Recordings">
+        <p class="hint">Relative to your Downloads folder. No drive letters or "..".</p>
+      </div>
+    </section>
+
+    <section class="card" id="proSection" aria-labelledby="proHeading">
+      <div class="section-title"><h2 id="proHeading">Meet Recorder Pro</h2><span id="proPrice">$4.99 one time</span></div>
+
+      <div id="proLoading" class="status-line" role="status">Checking your license...</div>
+
+      <div id="proUnlicensed" hidden>
+        <div id="earlyBirdBlock" class="early-bird" hidden>
+          <b>Early bird:</b> the first <span id="earlyBirdSeats">100</span> users get Pro free, forever.
+          <a id="earlyBirdLink" href="#">Email us to claim your key</a>.
+        </div>
+        <p>Unlock MP4 video, higher audio quality, WAV, separate tracks, pause/resume, custom file names and the keyboard shortcut.</p>
+        <a id="buyButton" class="primary buy-button" href="#" target="_blank" rel="noopener noreferrer">Buy Meet Recorder Pro &middot; <span id="buyPrice">$4.99</span></a>
+        <p class="hint">Your license key is emailed to your PayPal address after payment.</p>
+        <form id="activateForm" class="activate-form">
+          <label for="licenseKey">License key</label>
+          <input type="text" id="licenseKey" name="licenseKey" autocomplete="off" spellcheck="false" placeholder="BASH1-..." aria-describedby="licenseError">
+          <button type="submit" id="activateButton">Activate</button>
+        </form>
+        <p id="licenseError" class="error-text" role="alert" hidden></p>
+      </div>
+
+      <div id="proLicensed" hidden>
+        <p class="status-line success" role="status">Licensed to <b id="licensedEmail"></b></p>
+        <button type="button" id="removeLicenseButton" class="secondary">Remove license</button>
+      </div>
+
+      <p class="donate-line">Just want to say thanks? <a id="donateLink" href="#" target="_blank" rel="noopener noreferrer">Donate</a></p>
+    </section>
+
+    <p class="save-status" id="saveStatus" role="status" aria-live="polite">&nbsp;</p>
+  </main>
+  <script src="lib/config.js"></script>
+  <script src="lib/filename.js"></script>
+  <script src="lib/settings.js"></script>
+  <script src="lib/license.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
